@@ -1,3 +1,5 @@
+using ProjetoFinaceiro.Designer;
+
 namespace ProjetoFinaceiro
 {
     internal static class Program

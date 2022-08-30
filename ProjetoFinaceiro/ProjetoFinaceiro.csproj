@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Designer\" />
     <Folder Include="Modelo\" />
     <Folder Include="Services\" />
   </ItemGroup>
