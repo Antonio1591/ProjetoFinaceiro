@@ -16,5 +16,10 @@ namespace ProjetoFinaceiro.Designer
         {
             InitializeComponent();
         }
+
+        private void adicionarEntradaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmEntrada().Show();
+        }
     }
 }

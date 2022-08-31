@@ -16,5 +16,18 @@ namespace ProjetoFinaceiro.Designer
         {
             InitializeComponent();
         }
+
+        private void frmEntrada_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja Sair","Sair",MessageBoxButtons.YesNo,MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

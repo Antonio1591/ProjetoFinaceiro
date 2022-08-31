@@ -63,6 +63,26 @@ namespace ProjetoFinaceiro.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Controle_de_entrada_e_saida_de_pessoas_810x455 {
+            get {
+                object obj = ResourceManager.GetObject("Controle-de-entrada-e-saida-de-pessoas-810x455", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dinheiro {
+            get {
+                object obj = ResourceManager.GetObject("Dinheiro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Finaceiro_ico {
             get {
                 object obj = ResourceManager.GetObject("Finaceiro.ico", resourceCulture);
