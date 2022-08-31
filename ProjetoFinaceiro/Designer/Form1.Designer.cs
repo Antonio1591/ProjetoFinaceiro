@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.finaceiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarEntradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +49,9 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastroToolStripMenuItem,
             this.finaceiroToolStripMenuItem,
             this.entradasToolStripMenuItem,
             this.saidasToolStripMenuItem});
@@ -57,10 +61,27 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // cadastroToolStripMenuItem
+            // 
+            this.cadastroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tiposDeEntradasToolStripMenuItem});
+            this.cadastroToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
+            this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.cadastroToolStripMenuItem.Text = "Cadastro";
+            // 
+            // tiposDeEntradasToolStripMenuItem
+            // 
+            this.tiposDeEntradasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tiposDeEntradasToolStripMenuItem.Name = "tiposDeEntradasToolStripMenuItem";
+            this.tiposDeEntradasToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.tiposDeEntradasToolStripMenuItem.Text = "Tipos De Entradas/Saidas";
+            this.tiposDeEntradasToolStripMenuItem.Click += new System.EventHandler(this.tiposDeEntradasToolStripMenuItem_Click);
+            // 
             // finaceiroToolStripMenuItem
             // 
             this.finaceiroToolStripMenuItem.Name = "finaceiroToolStripMenuItem";
-            this.finaceiroToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.finaceiroToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.finaceiroToolStripMenuItem.Text = "Finaceiro";
             // 
             // entradasToolStripMenuItem
@@ -68,21 +89,21 @@
             this.entradasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adicionarEntradaToolStripMenuItem});
             this.entradasToolStripMenuItem.Name = "entradasToolStripMenuItem";
-            this.entradasToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.entradasToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.entradasToolStripMenuItem.Text = "Entradas";
             // 
             // adicionarEntradaToolStripMenuItem
             // 
             this.adicionarEntradaToolStripMenuItem.Image = global::ProjetoFinaceiro.Properties.Resources.Dinheiro;
             this.adicionarEntradaToolStripMenuItem.Name = "adicionarEntradaToolStripMenuItem";
-            this.adicionarEntradaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adicionarEntradaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.adicionarEntradaToolStripMenuItem.Text = "Adicionar Valor";
             this.adicionarEntradaToolStripMenuItem.Click += new System.EventHandler(this.adicionarEntradaToolStripMenuItem_Click);
             // 
             // saidasToolStripMenuItem
             // 
             this.saidasToolStripMenuItem.Name = "saidasToolStripMenuItem";
-            this.saidasToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.saidasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.saidasToolStripMenuItem.Text = "Saidas";
             // 
             // pnlValoresMensal
@@ -201,5 +222,7 @@
         private Label label2;
         private Label label1;
         private ToolStripMenuItem adicionarEntradaToolStripMenuItem;
+        private ToolStripMenuItem cadastroToolStripMenuItem;
+        private ToolStripMenuItem tiposDeEntradasToolStripMenuItem;
     }
 }

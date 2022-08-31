@@ -21,5 +21,10 @@ namespace ProjetoFinaceiro.Designer
         {
             new frmEntrada().Show();
         }
+
+        private void tiposDeEntradasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrmCadastroTiposEntradaESaida().Show();
+        }
     }
 }
