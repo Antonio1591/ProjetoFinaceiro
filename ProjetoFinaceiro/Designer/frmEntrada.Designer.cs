@@ -30,20 +30,20 @@
         {
             this.pnlEntradaFinaceira = new System.Windows.Forms.Panel();
             this.cmbEntradas = new System.Windows.Forms.ComboBox();
-            this.TxtValor = new ProjetoFinaceiro.Services.substituicaoTxtValor();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.substituicaoTxtValor1 = new substituicaoTxtValor();
             this.pnlEntradaFinaceira.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlEntradaFinaceira
             // 
             this.pnlEntradaFinaceira.BackColor = System.Drawing.Color.BurlyWood;
+            this.pnlEntradaFinaceira.Controls.Add(this.substituicaoTxtValor1);
             this.pnlEntradaFinaceira.Controls.Add(this.cmbEntradas);
-            this.pnlEntradaFinaceira.Controls.Add(this.TxtValor);
             this.pnlEntradaFinaceira.Controls.Add(this.btnCancelar);
             this.pnlEntradaFinaceira.Controls.Add(this.btnInserir);
             this.pnlEntradaFinaceira.Controls.Add(this.label3);
@@ -64,15 +64,6 @@
             this.cmbEntradas.Name = "cmbEntradas";
             this.cmbEntradas.Size = new System.Drawing.Size(160, 23);
             this.cmbEntradas.TabIndex = 7;
-            // 
-            // TxtValor
-            // 
-            this.TxtValor.BackColor = System.Drawing.Color.BurlyWood;
-            this.TxtValor.Location = new System.Drawing.Point(168, 157);
-            this.TxtValor.Name = "TxtValor";
-            this.TxtValor.Size = new System.Drawing.Size(160, 23);
-            this.TxtValor.TabIndex = 4;
-            this.TxtValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnCancelar
             // 
@@ -126,11 +117,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Entrada Finaceira";
             // 
+            // substituicaoTxtValor1
+            // 
+            this.substituicaoTxtValor1.Location = new System.Drawing.Point(168, 157);
+            this.substituicaoTxtValor1.Name = "substituicaoTxtValor1";
+            this.substituicaoTxtValor1.Size = new System.Drawing.Size(160, 23);
+            this.substituicaoTxtValor1.TabIndex = 8;
+            this.substituicaoTxtValor1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // frmEntrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::ProjetoFinaceiro.Properties.Resources.Controle_de_entrada_e_saida_de_pessoas_810x455;
+            this.BackgroundImage = global::ProjetoFinaceiro.Properties.Resources.Controle_de_entrada_e_saida_de_pessoas_810x4551;
             this.ClientSize = new System.Drawing.Size(641, 458);
             this.Controls.Add(this.pnlEntradaFinaceira);
             this.MaximizeBox = false;
@@ -152,7 +151,8 @@
         private Label label1;
         private Button btnCancelar;
         private Button btnInserir;
-        private Services.substituicaoTxtValor TxtValor;
+        private substituicaoTxtValor TxtValor;
         private ComboBox cmbEntradas;
+        private substituicaoTxtValor substituicaoTxtValor1;
     }
 }

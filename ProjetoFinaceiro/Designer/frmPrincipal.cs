@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,13 @@ using System.Windows.Forms;
 
 namespace ProjetoFinaceiro.Designer
 {
-    public partial class Form1 : Form
+    public partial class frmPrincipal : Form
     {
-        public Form1()
+        private readonly IServiceProvider _serviceProvider;
+        public frmPrincipal(IServiceProvider serviceProvider)
         {
             InitializeComponent();
+            _serviceProvider = serviceProvider;
         }
 
         private void adicionarEntradaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -24,7 +27,9 @@ namespace ProjetoFinaceiro.Designer
 
         private void tiposDeEntradasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FrmCadastroTiposEntradaESaida().Show();
+            var form = _serviceProvider.GetService<frmCadastroTiposEntradaESaida>();
+
+            form.Show();
         }
     }
 }

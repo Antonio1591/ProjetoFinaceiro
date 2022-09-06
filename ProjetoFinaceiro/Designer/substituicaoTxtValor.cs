@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace ProjetoFinaceiro.Services
+namespace ProjetoFinaceiro.Designer
 {
-    public class substituicaoTxtValor:TextBox
+    public class substituicaoTxtValor : TextBox
     {
 
         //protected override void OnGotFocus(EventArgs e)
@@ -20,18 +20,18 @@ namespace ProjetoFinaceiro.Services
         protected override void OnLostFocus(EventArgs e)
         {
             base.OnLostFocus(e);
-            this.BackColor= Color.BurlyWood;
-            if (this.Text == "")
+            BackColor = Color.BurlyWood;
+            if (Text == "")
                 return;
             try
             {
-                double valor = Convert.ToDouble(this.Text.Replace("R$ ", "" ));
-                Convert.ToDouble(this.Text);
-                this.Text = String.Format("{0:c}", valor);
+                double valor = Convert.ToDouble(Text.Replace("R$ ", ""));
+                Convert.ToDouble(Text);
+                Text = string.Format("{0:c}", valor);
             }
             catch
             {
-                this.Text = "";
+                Text = "";
                 MessageBox.Show("Valor Invalido");
             }
         }
@@ -40,15 +40,15 @@ namespace ProjetoFinaceiro.Services
             base.OnKeyDown(e);
             if (e.KeyCode == Keys.Escape)
             {
-                this.Text = "";
+                Text = "";
                 e.SuppressKeyPress = true;
             }
         }
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            this.TextAlign = HorizontalAlignment.Right;
+            TextAlign = HorizontalAlignment.Right;
         }
-       
+
     }
 }

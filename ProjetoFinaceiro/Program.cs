@@ -1,19 +1,47 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using ProjetoFinaceiro.Data;
 using ProjetoFinaceiro.Designer;
+using ProjetoFinaceiro.Services;
 
 namespace ProjetoFinaceiro
 {
     internal static class Program
     {
+        public static IServiceProvider ServiceProvider { get; set; }
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+
+            var services = new ServiceCollection();
+            services.AddScoped<frmPrincipal>();
+            services.AddScoped<frmCadastroTiposEntradaESaida>();
+            services.AddScoped<MovimentoFinanceiroService>();
+
+
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
+
+            services.AddDbContext<FinanceiroDbContext>(opt =>
+            {
+                opt.UseMySql("Server=localhost;port=3306;User Id=root; database=projetofinaceiro;password=123456", serverVersion)
+                .LogTo(Console.WriteLine, LogLevel.Information);
+            });
+
+
+            ServiceProvider = services.BuildServiceProvider();
+
+
+            var formPrincipal = ServiceProvider.GetService<frmPrincipal>();
+            Application.Run(formPrincipal);
         }
     }
 }

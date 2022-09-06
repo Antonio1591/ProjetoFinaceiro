@@ -1,6 +1,6 @@
 ﻿namespace ProjetoFinaceiro.Designer
 {
-    partial class Form1
+    partial class frmPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -94,7 +94,7 @@
             // 
             // adicionarEntradaToolStripMenuItem
             // 
-            this.adicionarEntradaToolStripMenuItem.Image = global::ProjetoFinaceiro.Properties.Resources.Dinheiro;
+            //this.adicionarEntradaToolStripMenuItem.Image = global::ProjetoFinaceiro.Properties.Resources.Dinheiro;
             this.adicionarEntradaToolStripMenuItem.Name = "adicionarEntradaToolStripMenuItem";
             this.adicionarEntradaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.adicionarEntradaToolStripMenuItem.Text = "Adicionar Valor";
