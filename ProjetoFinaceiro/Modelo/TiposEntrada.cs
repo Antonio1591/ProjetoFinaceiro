@@ -13,9 +13,9 @@ namespace ProjetoFinaceiro.Modelo
     {
         protected TipoEntrada() { }
          
-        public TipoEntrada(int id, string nome, string tipo, string descricao)
+        public TipoEntrada(string nome, string tipo, string descricao)
         {
-            Id = id;
+            
             Nome = nome;
             Tipo=tipo;
             Descricao = descricao;

@@ -26,6 +26,7 @@ namespace ProjetoFinaceiro
             services.AddScoped<frmPrincipal>();
             services.AddScoped<frmCadastroTiposEntradaESaida>();
             services.AddScoped<MovimentoFinanceiroService>();
+            services.AddScoped<frmEntrada>();
 
 
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
@@ -38,8 +39,6 @@ namespace ProjetoFinaceiro
 
 
             ServiceProvider = services.BuildServiceProvider();
-
-
             var formPrincipal = ServiceProvider.GetService<frmPrincipal>();
             Application.Run(formPrincipal);
         }

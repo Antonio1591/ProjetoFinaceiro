@@ -16,19 +16,20 @@ namespace ProjetoFinaceiro.Designer
         private readonly IServiceProvider _serviceProvider;
         public frmPrincipal(IServiceProvider serviceProvider)
         {
-            InitializeComponent();
             _serviceProvider = serviceProvider;
+            InitializeComponent();
+          
         }
 
         private void adicionarEntradaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmEntrada().Show();
+            var form = _serviceProvider.GetService<frmEntrada>();
+            form.Show();
         }
 
         private void tiposDeEntradasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = _serviceProvider.GetService<frmCadastroTiposEntradaESaida>();
-
+            var form =  _serviceProvider.GetService<frmCadastroTiposEntradaESaida>();
             form.Show();
         }
     }

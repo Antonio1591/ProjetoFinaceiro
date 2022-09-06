@@ -35,7 +35,7 @@
             this.cmbTipoOperacao = new System.Windows.Forms.ComboBox();
             this.btnInserir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDescriscao = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -111,14 +111,14 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // textBox1
+            // txtDescriscao
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(161, 153);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 55);
-            this.textBox1.TabIndex = 5;
+            this.txtDescriscao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtDescriscao.Location = new System.Drawing.Point(161, 153);
+            this.txtDescriscao.Multiline = true;
+            this.txtDescriscao.Name = "txtDescriscao";
+            this.txtDescriscao.Size = new System.Drawing.Size(149, 55);
+            this.txtDescriscao.TabIndex = 5;
             // 
             // label3
             // 
@@ -136,7 +136,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(352, 298);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDescriscao);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnInserir);
@@ -163,7 +163,7 @@
         private ComboBox cmbTipoOperacao;
         private Button btnInserir;
         private Button btnCancelar;
-        private TextBox textBox1;
+        private TextBox txtDescriscao;
         private Label label3;
     }
 }

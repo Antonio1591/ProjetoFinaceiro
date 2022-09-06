@@ -16,16 +16,15 @@ namespace ProjetoFinaceiro.Designer
         private readonly MovimentoFinanceiroService _movimentoFinanceiroService;
         public frmCadastroTiposEntradaESaida(MovimentoFinanceiroService movimentoFinanceiroService)
         {
-            InitializeComponent();
-
             _movimentoFinanceiroService = movimentoFinanceiroService;
-
+            InitializeComponent();
 
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            _movimentoFinanceiroService.Salvar(new Modelo.TipoEntrada(0, "teste","Teste Tipo", "teste descricao"));
+            _movimentoFinanceiroService.Salvar(new Modelo.TipoEntrada(txtNomeOperacao.Text, cmbTipoOperacao.Text, txtDescriscao.Text));
+            MessageBox.Show("Operação cadastrada! " ,"Cadastro",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
