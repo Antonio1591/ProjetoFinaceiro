@@ -29,5 +29,10 @@ namespace ProjetoFinaceiro.Designer
                 this.Close();
             }
         }
+
+        private void cmbEntradas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

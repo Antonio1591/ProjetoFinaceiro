@@ -79,6 +79,7 @@
             // 
             // cmbTipoOperacao
             // 
+            this.cmbTipoOperacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoOperacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbTipoOperacao.FormattingEnabled = true;
             this.cmbTipoOperacao.Items.AddRange(new object[] {

@@ -14,6 +14,7 @@ namespace ProjetoFinaceiro.Designer
     public partial class frmPrincipal : Form
     {
         private readonly IServiceProvider _serviceProvider;
+    
         public frmPrincipal(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
@@ -24,13 +25,14 @@ namespace ProjetoFinaceiro.Designer
         private void adicionarEntradaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = _serviceProvider.GetService<frmEntrada>();
-            form.Show();
+           form.Show();
         }
 
         private void tiposDeEntradasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form =  _serviceProvider.GetService<frmCadastroTiposEntradaESaida>();
             form.Show();
+           
         }
     }
 }

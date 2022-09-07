@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoFinaceiro.Modelo
 {
-    public  class Cliente
+    public  class MovimentoFinaceiro
     {
     }
 }

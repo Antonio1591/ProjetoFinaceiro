@@ -13,17 +13,22 @@ namespace ProjetoFinaceiro.Designer
 {
     public partial class frmCadastroTiposEntradaESaida : Form
     {
-        private readonly MovimentoFinanceiroService _movimentoFinanceiroService;
-        public frmCadastroTiposEntradaESaida(MovimentoFinanceiroService movimentoFinanceiroService)
+        private readonly TiposService _tiposService;
+        public frmCadastroTiposEntradaESaida(TiposService tiposService)
         {
-            _movimentoFinanceiroService = movimentoFinanceiroService;
+            _tiposService = tiposService;
             InitializeComponent();
 
         }
-
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            _movimentoFinanceiroService.Salvar(new Modelo.TipoEntrada(txtNomeOperacao.Text, cmbTipoOperacao.Text, txtDescriscao.Text));
+            if(txtNomeOperacao.Text == "" || cmbTipoOperacao.Text == "" || txtDescriscao.Text == "")
+            {
+                MessageBox.Show("Não pode haver campos vazios", "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _tiposService.Salvar(new Modelo.Tipos(txtNomeOperacao.Text, cmbTipoOperacao.Text, txtDescriscao.Text,"ATIVO"));
             MessageBox.Show("Operação cadastrada! " ,"Cadastro",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
@@ -31,7 +36,6 @@ namespace ProjetoFinaceiro.Designer
         {
             if(MessageBox.Show("Deseja fechar essa tela? ","Fechar tela",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
                              this.Close();
-        
         }
     }
 }

@@ -11,25 +11,24 @@ namespace ProjetoFinaceiro.Services
 {
     public class MovimentoFinanceiroService
     {
-        private readonly FinanceiroDbContext _financeiroDbContext;
+        //private readonly FinanceiroDbContext _financeiroDbContext;
 
-        public MovimentoFinanceiroService(FinanceiroDbContext financeiroDbContext)
-        {
-            _financeiroDbContext = financeiroDbContext;
-        }
+        //public MovimentoFinanceiroService(FinanceiroDbContext financeiroDbContext)
+        //{
+        //    _financeiroDbContext = financeiroDbContext;
+        //}
 
-        public async Task<IEnumerable<TipoEntrada>> ObterTipos()
-        {
-            return await _financeiroDbContext.TiposEntrada.ToListAsync();
-        }
+        //public async Task<IEnumerable<Tipos>> ObterTipos()
+        //{
+        //    return await _financeiroDbContext.Tipos.ToListAsync();
+        //}
 
-        public async void Salvar(TipoEntrada tipo)
-        {
-            _financeiroDbContext.TiposEntrada.Add(tipo);
+        //public async void Salvar(Tipos tipo)
+        //{
+        //    _financeiroDbContext.Tipos.Add(tipo);
 
-          
-            await _financeiroDbContext.SaveChangesAsync();
-        }
+        //     await _financeiroDbContext.SaveChangesAsync();
+        //}
 
     }
 }

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.pnlEntradaFinaceira = new System.Windows.Forms.Panel();
+            this.substituicaoTxtValor1 = new ProjetoFinaceiro.Designer.substituicaoTxtValor();
             this.cmbEntradas = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.substituicaoTxtValor1 = new substituicaoTxtValor();
             this.pnlEntradaFinaceira.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +54,15 @@
             this.pnlEntradaFinaceira.Size = new System.Drawing.Size(345, 281);
             this.pnlEntradaFinaceira.TabIndex = 0;
             // 
+            // substituicaoTxtValor1
+            // 
+            this.substituicaoTxtValor1.BackColor = System.Drawing.Color.BurlyWood;
+            this.substituicaoTxtValor1.Location = new System.Drawing.Point(168, 157);
+            this.substituicaoTxtValor1.Name = "substituicaoTxtValor1";
+            this.substituicaoTxtValor1.Size = new System.Drawing.Size(160, 23);
+            this.substituicaoTxtValor1.TabIndex = 8;
+            this.substituicaoTxtValor1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // cmbEntradas
             // 
             this.cmbEntradas.BackColor = System.Drawing.Color.BurlyWood;
@@ -64,6 +73,7 @@
             this.cmbEntradas.Name = "cmbEntradas";
             this.cmbEntradas.Size = new System.Drawing.Size(160, 23);
             this.cmbEntradas.TabIndex = 7;
+            this.cmbEntradas.SelectedIndexChanged += new System.EventHandler(this.cmbEntradas_SelectedIndexChanged);
             // 
             // btnCancelar
             // 
@@ -116,14 +126,6 @@
             this.label1.Size = new System.Drawing.Size(144, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Entrada Finaceira";
-            // 
-            // substituicaoTxtValor1
-            // 
-            this.substituicaoTxtValor1.Location = new System.Drawing.Point(168, 157);
-            this.substituicaoTxtValor1.Name = "substituicaoTxtValor1";
-            this.substituicaoTxtValor1.Size = new System.Drawing.Size(160, 23);
-            this.substituicaoTxtValor1.TabIndex = 8;
-            this.substituicaoTxtValor1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // frmEntrada
             // 

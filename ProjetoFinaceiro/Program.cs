@@ -23,11 +23,10 @@ namespace ProjetoFinaceiro
             ApplicationConfiguration.Initialize();
 
             var services = new ServiceCollection();
-            services.AddScoped<frmPrincipal>();
-            services.AddScoped<frmCadastroTiposEntradaESaida>();
-            services.AddScoped<MovimentoFinanceiroService>();
-            services.AddScoped<frmEntrada>();
-
+            services.AddTransient<frmPrincipal>();
+            services.AddTransient<frmCadastroTiposEntradaESaida>();
+            services.AddTransient<MovimentoFinanceiroService>();
+            services.AddTransient<frmEntrada>();
 
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
 
@@ -39,6 +38,7 @@ namespace ProjetoFinaceiro
 
 
             ServiceProvider = services.BuildServiceProvider();
+
             var formPrincipal = ServiceProvider.GetService<frmPrincipal>();
             Application.Run(formPrincipal);
         }

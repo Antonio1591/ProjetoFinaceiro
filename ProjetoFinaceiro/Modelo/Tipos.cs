@@ -9,26 +9,25 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ProjetoFinaceiro.Modelo
 {
-    public class TipoEntrada
+    public class Tipos
     {
-        protected TipoEntrada() { }
+        protected Tipos() { }
          
-        public TipoEntrada(string nome, string tipo, string descricao)
-        {
-            
+        public Tipos(string nome, string tipo, string descricao,string situacao)
+        {      
             Nome = nome;
             Tipo=tipo;
             Descricao = descricao;
+            Situacao = situacao;
         }
 
         [Key]
-        public int Id { get; set; }
+        public int Id{ get; set; }
 
 
         [Required(ErrorMessage = "O nome e obrigatorio")]
         [StringLength(maximumLength: 100, MinimumLength = 4)]
         public string Nome { get; set; }
-
 
 
         [Required(ErrorMessage = "O Tipo e obrigatorio")]
@@ -39,7 +38,7 @@ namespace ProjetoFinaceiro.Modelo
         [StringLength(maximumLength: 100, MinimumLength = 10)]
         public string Descricao { get; set; }
 
-
+        public string Situacao { get; set; }
 
     }
 

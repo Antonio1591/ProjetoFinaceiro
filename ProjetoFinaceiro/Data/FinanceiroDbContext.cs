@@ -8,9 +8,9 @@ namespace ProjetoFinaceiro.Data
 {
     public class FinanceiroDbContext : DbContext
     {
-
+       
         public FinanceiroDbContext(DbContextOptions<FinanceiroDbContext> options) : base(options) { }
-        public DbSet<TipoEntrada> TiposEntrada { get; set; }
+        public DbSet<Tipos> Tipos { get; set; }
        
 
     }
