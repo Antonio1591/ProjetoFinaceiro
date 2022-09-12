@@ -67,8 +67,6 @@
             // 
             this.cmbEntradas.BackColor = System.Drawing.Color.BurlyWood;
             this.cmbEntradas.FormattingEnabled = true;
-            this.cmbEntradas.Items.AddRange(new object[] {
-            "Salario"});
             this.cmbEntradas.Location = new System.Drawing.Point(168, 102);
             this.cmbEntradas.Name = "cmbEntradas";
             this.cmbEntradas.Size = new System.Drawing.Size(160, 23);
@@ -94,6 +92,7 @@
             this.btnInserir.TabIndex = 5;
             this.btnInserir.Text = "Inserir Entrada";
             this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // label3
             // 
@@ -153,7 +152,6 @@
         private Label label1;
         private Button btnCancelar;
         private Button btnInserir;
-        private substituicaoTxtValor TxtValor;
         private ComboBox cmbEntradas;
         private substituicaoTxtValor substituicaoTxtValor1;
     }

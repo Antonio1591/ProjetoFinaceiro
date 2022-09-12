@@ -31,14 +31,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.finaceiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarEntradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adicionarValorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.finaceiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlValoresMensal = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtValorTotal = new System.Windows.Forms.TextBox();
+            this.txtValorSaida = new System.Windows.Forms.TextBox();
             this.txtValorEntrada = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,9 +53,9 @@
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroToolStripMenuItem,
-            this.finaceiroToolStripMenuItem,
             this.entradasToolStripMenuItem,
-            this.saidasToolStripMenuItem});
+            this.saidasToolStripMenuItem,
+            this.finaceiroToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(658, 24);
@@ -78,12 +79,6 @@
             this.tiposDeEntradasToolStripMenuItem.Text = "Tipos De Entradas/Saidas";
             this.tiposDeEntradasToolStripMenuItem.Click += new System.EventHandler(this.tiposDeEntradasToolStripMenuItem_Click);
             // 
-            // finaceiroToolStripMenuItem
-            // 
-            this.finaceiroToolStripMenuItem.Name = "finaceiroToolStripMenuItem";
-            this.finaceiroToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.finaceiroToolStripMenuItem.Text = "Finaceiro";
-            // 
             // entradasToolStripMenuItem
             // 
             this.entradasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -94,7 +89,6 @@
             // 
             // adicionarEntradaToolStripMenuItem
             // 
-            //this.adicionarEntradaToolStripMenuItem.Image = global::ProjetoFinaceiro.Properties.Resources.Dinheiro;
             this.adicionarEntradaToolStripMenuItem.Name = "adicionarEntradaToolStripMenuItem";
             this.adicionarEntradaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.adicionarEntradaToolStripMenuItem.Text = "Adicionar Valor";
@@ -102,16 +96,31 @@
             // 
             // saidasToolStripMenuItem
             // 
+            this.saidasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adicionarValorToolStripMenuItem});
             this.saidasToolStripMenuItem.Name = "saidasToolStripMenuItem";
             this.saidasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.saidasToolStripMenuItem.Text = "Saidas";
+            // 
+            // adicionarValorToolStripMenuItem
+            // 
+            this.adicionarValorToolStripMenuItem.Name = "adicionarValorToolStripMenuItem";
+            this.adicionarValorToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.adicionarValorToolStripMenuItem.Text = "Adicionar Valor";
+            this.adicionarValorToolStripMenuItem.Click += new System.EventHandler(this.adicionarValorToolStripMenuItem_Click);
+            // 
+            // finaceiroToolStripMenuItem
+            // 
+            this.finaceiroToolStripMenuItem.Name = "finaceiroToolStripMenuItem";
+            this.finaceiroToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.finaceiroToolStripMenuItem.Text = "Relatorios";
             // 
             // pnlValoresMensal
             // 
             this.pnlValoresMensal.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pnlValoresMensal.Controls.Add(this.label4);
-            this.pnlValoresMensal.Controls.Add(this.textBox3);
-            this.pnlValoresMensal.Controls.Add(this.textBox2);
+            this.pnlValoresMensal.Controls.Add(this.txtValorTotal);
+            this.pnlValoresMensal.Controls.Add(this.txtValorSaida);
             this.pnlValoresMensal.Controls.Add(this.txtValorEntrada);
             this.pnlValoresMensal.Controls.Add(this.label3);
             this.pnlValoresMensal.Controls.Add(this.label2);
@@ -131,26 +140,29 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Valores mensal";
             // 
-            // textBox3
+            // txtValorTotal
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(106, 127);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(94, 22);
-            this.textBox3.TabIndex = 4;
+            this.txtValorTotal.Enabled = false;
+            this.txtValorTotal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtValorTotal.Location = new System.Drawing.Point(106, 127);
+            this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.Size = new System.Drawing.Size(94, 22);
+            this.txtValorTotal.TabIndex = 4;
+            this.txtValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox2
+            // txtValorSaida
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(106, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(94, 22);
-            this.textBox2.TabIndex = 4;
+            this.txtValorSaida.Enabled = false;
+            this.txtValorSaida.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtValorSaida.Location = new System.Drawing.Point(106, 89);
+            this.txtValorSaida.Name = "txtValorSaida";
+            this.txtValorSaida.Size = new System.Drawing.Size(94, 22);
+            this.txtValorSaida.TabIndex = 4;
+            this.txtValorSaida.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtValorEntrada
             // 
+            this.txtValorEntrada.BackColor = System.Drawing.SystemColors.Window;
             this.txtValorEntrada.Enabled = false;
             this.txtValorEntrada.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtValorEntrada.Location = new System.Drawing.Point(106, 48);
@@ -186,7 +198,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Valor Entrada ";
             // 
-            // Form1
+            // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -196,9 +208,10 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.pnlValoresMensal.ResumeLayout(false);
@@ -215,8 +228,8 @@
         private ToolStripMenuItem entradasToolStripMenuItem;
         private Panel pnlValoresMensal;
         private Label label4;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private TextBox txtValorTotal;
+        private TextBox txtValorSaida;
         private TextBox txtValorEntrada;
         private Label label3;
         private Label label2;
@@ -224,5 +237,6 @@
         private ToolStripMenuItem adicionarEntradaToolStripMenuItem;
         private ToolStripMenuItem cadastroToolStripMenuItem;
         private ToolStripMenuItem tiposDeEntradasToolStripMenuItem;
+        private ToolStripMenuItem adicionarValorToolStripMenuItem;
     }
 }

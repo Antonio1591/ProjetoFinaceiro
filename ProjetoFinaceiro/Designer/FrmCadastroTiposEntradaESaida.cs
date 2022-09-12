@@ -22,20 +22,20 @@ namespace ProjetoFinaceiro.Designer
         }
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            if(txtNomeOperacao.Text == "" || cmbTipoOperacao.Text == "" || txtDescriscao.Text == "")
+            if (txtNomeOperacao.Text == "" || cmbTipoOperacao.Text == "" || txtDescriscao.Text == "")
             {
                 MessageBox.Show("Não pode haver campos vazios", "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            _tiposService.Salvar(new Modelo.Tipos(txtNomeOperacao.Text, cmbTipoOperacao.Text, txtDescriscao.Text,"ATIVO"));
-            MessageBox.Show("Operação cadastrada! " ,"Cadastro",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            _tiposService.Salvar(new Modelo.Tipos(txtNomeOperacao.Text, cmbTipoOperacao.Text, txtDescriscao.Text, "ATIVO"));
+            MessageBox.Show("Operação cadastrada! ", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Deseja fechar essa tela? ","Fechar tela",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
-                             this.Close();
+            if (MessageBox.Show("Deseja fechar essa tela? ", "Fechar tela", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                this.Close();
         }
     }
 }

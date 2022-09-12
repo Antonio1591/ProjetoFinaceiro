@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ProjetoFinaceiro.Data;
 using ProjetoFinaceiro.Designer;
+using ProjetoFinaceiro.Modelo;
 using ProjetoFinaceiro.Services;
 
 namespace ProjetoFinaceiro
@@ -25,8 +26,15 @@ namespace ProjetoFinaceiro
             var services = new ServiceCollection();
             services.AddTransient<frmPrincipal>();
             services.AddTransient<frmCadastroTiposEntradaESaida>();
-            services.AddTransient<MovimentoFinanceiroService>();
+            services.AddTransient<MovimentoFinaceiro>();
+            services.AddTransient<MovimentoFinaceiroService>();
+            services.AddTransient<EntradaFinaceira>();
+            services.AddTransient<EntradaFinaceiraService>();
+            services.AddTransient<SaidaFinaceira>();
+            services.AddTransient<SaidaFinaceiraService>();
             services.AddTransient<frmEntrada>();
+            services.AddTransient<TiposService>();
+            services.AddTransient<frmSaida>();
 
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
 

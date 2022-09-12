@@ -20,11 +20,11 @@ namespace ProjetoFinaceiro.Designer
         protected override void OnLostFocus(EventArgs e)
         {
             base.OnLostFocus(e);
-            BackColor = Color.BurlyWood;
             if (Text == "")
                 return;
             try
             {
+
                 double valor = Convert.ToDouble(Text.Replace("R$ ", ""));
                 Convert.ToDouble(Text);
                 Text = string.Format("{0:c}", valor);
