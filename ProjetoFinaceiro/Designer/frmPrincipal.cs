@@ -51,11 +51,13 @@ namespace ProjetoFinaceiro.Designer
             txtValorEntrada.Text = valorEntrada.ToString("N2");
             txtValorSaida.Text = valorSaida.ToString("N2");
             txtValorTotal.Text = valorTotal.ToString("N2");
+            lblValorTotal.Text =   valorTotal.ToString("N2");
 
             if (valorTotal > 0)
-                txtValorTotal.BackColorS = Color.LightGreen;
-            else
-                txtValorTotal.BackColor = Color.FromArgb(255, 91, 96);
+                txtValorTotal.BackColor = Color.LightGreen;
+            else;
+            txtValorTotal.ForeColor = Color.FromArgb(255, 91, 96);
+            lblValorTotal.ForeColor = Color.FromArgb(255, 91, 96);
 
             //txtValorEntrada.Text = dtfinal.ToString();
         }
@@ -65,5 +67,7 @@ namespace ProjetoFinaceiro.Designer
             var form = _serviceProvider.GetService<frmSaida>();
             form.Show();
         }
+
+
     }
 }

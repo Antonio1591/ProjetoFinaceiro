@@ -37,15 +37,18 @@
             this.adicionarValorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.finaceiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlValoresMensal = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblValorTotal = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.txtValorSaida = new System.Windows.Forms.TextBox();
             this.txtValorEntrada = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.pnlValoresMensal.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -118,8 +121,8 @@
             // pnlValoresMensal
             // 
             this.pnlValoresMensal.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlValoresMensal.Controls.Add(this.panel1);
             this.pnlValoresMensal.Controls.Add(this.label4);
-            this.pnlValoresMensal.Controls.Add(this.txtValorTotal);
             this.pnlValoresMensal.Controls.Add(this.txtValorSaida);
             this.pnlValoresMensal.Controls.Add(this.txtValorEntrada);
             this.pnlValoresMensal.Controls.Add(this.label3);
@@ -130,6 +133,24 @@
             this.pnlValoresMensal.Size = new System.Drawing.Size(248, 156);
             this.pnlValoresMensal.TabIndex = 1;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.Controls.Add(this.lblValorTotal);
+            this.panel1.Location = new System.Drawing.Point(106, 127);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(94, 22);
+            this.panel1.TabIndex = 5;
+            // 
+            // lblValorTotal
+            // 
+            this.lblValorTotal.AutoSize = true;
+            this.lblValorTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblValorTotal.Location = new System.Drawing.Point(48, 2);
+            this.lblValorTotal.Name = "lblValorTotal";
+            this.lblValorTotal.Size = new System.Drawing.Size(0, 15);
+            this.lblValorTotal.TabIndex = 6;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -139,16 +160,6 @@
             this.label4.Size = new System.Drawing.Size(101, 17);
             this.label4.TabIndex = 5;
             this.label4.Text = "Valores mensal";
-            // 
-            // txtValorTotal
-            // 
-            this.txtValorTotal.Enabled = false;
-            this.txtValorTotal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtValorTotal.Location = new System.Drawing.Point(106, 127);
-            this.txtValorTotal.Name = "txtValorTotal";
-            this.txtValorTotal.Size = new System.Drawing.Size(94, 22);
-            this.txtValorTotal.TabIndex = 4;
-            this.txtValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtValorSaida
             // 
@@ -198,12 +209,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Valor Entrada ";
             // 
+            // txtValorTotal
+            // 
+            this.txtValorTotal.Enabled = false;
+            this.txtValorTotal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtValorTotal.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtValorTotal.Location = new System.Drawing.Point(504, 372);
+            this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.Size = new System.Drawing.Size(94, 22);
+            this.txtValorTotal.TabIndex = 4;
+            this.txtValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProjetoFinaceiro.Properties.Resources.Finaceiro_ico;
             this.ClientSize = new System.Drawing.Size(658, 425);
+            this.Controls.Add(this.txtValorTotal);
             this.Controls.Add(this.pnlValoresMensal);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -216,6 +239,8 @@
             this.menuStrip1.PerformLayout();
             this.pnlValoresMensal.ResumeLayout(false);
             this.pnlValoresMensal.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +263,7 @@
         private ToolStripMenuItem cadastroToolStripMenuItem;
         private ToolStripMenuItem tiposDeEntradasToolStripMenuItem;
         private ToolStripMenuItem adicionarValorToolStripMenuItem;
+        private Label lblValorTotal;
+        private Panel panel1;
     }
 }
