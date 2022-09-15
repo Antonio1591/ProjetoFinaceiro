@@ -68,6 +68,10 @@ namespace ProjetoFinaceiro.Designer
             form.Show();
         }
 
-
+        private void finaceiroToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var form = _serviceProvider.GetService<frmRelatorio>();
+            form.Show();
+        }
     }
 }

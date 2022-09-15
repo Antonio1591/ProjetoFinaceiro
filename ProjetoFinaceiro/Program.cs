@@ -35,6 +35,7 @@ namespace ProjetoFinaceiro
             services.AddTransient<frmEntrada>();
             services.AddTransient<TiposService>();
             services.AddTransient<frmSaida>();
+            services.AddTransient<frmRelatorio>();
 
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
 

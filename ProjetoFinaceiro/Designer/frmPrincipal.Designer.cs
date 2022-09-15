@@ -46,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtValorTotal = new System.Windows.Forms.TextBox();
+            this.finaceiroToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlValoresMensal.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -114,6 +115,8 @@
             // 
             // finaceiroToolStripMenuItem
             // 
+            this.finaceiroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.finaceiroToolStripMenuItem1});
             this.finaceiroToolStripMenuItem.Name = "finaceiroToolStripMenuItem";
             this.finaceiroToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.finaceiroToolStripMenuItem.Text = "Relatorios";
@@ -220,6 +223,13 @@
             this.txtValorTotal.TabIndex = 4;
             this.txtValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // finaceiroToolStripMenuItem1
+            // 
+            this.finaceiroToolStripMenuItem1.Name = "finaceiroToolStripMenuItem1";
+            this.finaceiroToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.finaceiroToolStripMenuItem1.Text = "Finaceiro";
+            this.finaceiroToolStripMenuItem1.Click += new System.EventHandler(this.finaceiroToolStripMenuItem1_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -265,5 +275,6 @@
         private ToolStripMenuItem adicionarValorToolStripMenuItem;
         private Label lblValorTotal;
         private Panel panel1;
+        private ToolStripMenuItem finaceiroToolStripMenuItem1;
     }
 }
