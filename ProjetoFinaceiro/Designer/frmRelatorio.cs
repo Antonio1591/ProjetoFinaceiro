@@ -24,10 +24,36 @@ namespace ProjetoFinaceiro.Designer
             _MovimentoFinaceiroService = movimentoFinaceiroService;
         }
 
+        private void frmRelatorio_Load(object sender, EventArgs e)
+        {
+            dtInicial.Value=DateTime.Now;
+            dtFinal.Value = DateTime.Now;
+            cmbTipoOPeracao.Text = "TODOS";
+            cmbSituacao.Text = "TODOS";
 
-        private void Relatorio_Load(object sender, EventArgs e)
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
 
+            IEnumerable<MovimentoFinaceiro> movimento = _MovimentoFinaceiroService.RelatorioPersonalizado(dtInicial.Value, dtFinal.Value, cmbTipoOPeracao.Text, cmbSituacao.Text);
+            var celula=0;
+            dataGridView1.Rows.Clear();
+            foreach (var Movimentos in movimento)
+   
+            {
+                txtNomeoperacao.DataGridView.Rows.Add(Movimentos.NomeOperacao_Finaceiro);
+                txtDataLancamento.DataGridView.Rows[celula].Cells[1].Value = Movimentos.DataMovimentacao_Finaceiro;
+                txtTipoOperracao.DataGridView.Rows[celula].Cells[2].Value = Movimentos.TipoOperacao_Finaceiro;
+                txtValor.DataGridView.Rows[celula].Cells[3].Value = Movimentos.ValorEntrada_Finaceiro + Movimentos.ValorSaida_Finaceiro;
+                txtSituacao.DataGridView.Rows[celula].Cells[4].Value = Movimentos.Situacao_Finaceiro;
+                celula++;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
         }
     }
 }

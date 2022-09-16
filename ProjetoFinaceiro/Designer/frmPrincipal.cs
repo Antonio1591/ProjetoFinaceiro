@@ -55,7 +55,7 @@ namespace ProjetoFinaceiro.Designer
 
             if (valorTotal > 0)
                 txtValorTotal.BackColor = Color.LightGreen;
-            else;
+            else
             txtValorTotal.ForeColor = Color.FromArgb(255, 91, 96);
             lblValorTotal.ForeColor = Color.FromArgb(255, 91, 96);
 

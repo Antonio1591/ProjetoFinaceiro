@@ -64,24 +64,36 @@ namespace ProjetoFinaceiro.Services
 
         public IEnumerable<MovimentoFinaceiro> RelatorioPersonalizado(DateTime dataInicial, DateTime dataFinal, string tipoOperacao, string situacao)
         {
-            if (tipoOperacao == "TODOS")
-                tipoOperacao = "In (Ativo,Inativo)";
+
 
             if (situacao == "TODOS")
             {
-                var valor = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.DataMovimentacao_Finaceiro >= dataInicial && S.DataMovimentacao_Finaceiro <= dataFinal && S.TipoOperacao_Finaceiro == tipoOperacao);
+                if (tipoOperacao == "TODOS")
+                {
+                    IQueryable<MovimentoFinaceiro> movimentoFinaceiros = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.DataMovimentacao_Finaceiro >= dataInicial && S.DataMovimentacao_Finaceiro <= dataFinal);
 
-                return valor;
-            }
-            if (situacao == "Ativo")
-            {
-                var valor = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.Situacao_Finaceiro == "Ativo" && S.DataMovimentacao_Finaceiro >= dataInicial && S.DataMovimentacao_Finaceiro <= dataFinal && S.TipoOperacao_Finaceiro == tipoOperacao);
-                return valor;
+                    return movimentoFinaceiros;
+                }
+                else
+                {
+                    IQueryable<MovimentoFinaceiro> movimentoFinaceiros = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.DataMovimentacao_Finaceiro >= dataInicial && S.DataMovimentacao_Finaceiro <= dataFinal && S.TipoOperacao_Finaceiro == tipoOperacao);
+
+                    return movimentoFinaceiros;
+                }
             }
             else
             {
-                var valor = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.Situacao_Finaceiro == "Inativo" && S.DataMovimentacao_Finaceiro >= dataInicial && S.DataMovimentacao_Finaceiro <= dataFinal && S.TipoOperacao_Finaceiro == tipoOperacao);
-                return valor;
+                if (tipoOperacao == "TODOS")
+                {
+                    IQueryable<MovimentoFinaceiro> movimentoFinaceiros = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.Situacao_Finaceiro == situacao && S.DataMovimentacao_Finaceiro >= dataInicial && S.DataMovimentacao_Finaceiro <= dataFinal);
+                    return movimentoFinaceiros;
+                }
+                else
+                {
+                    
+                    IQueryable<MovimentoFinaceiro> movimentoFinaceiros = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.Situacao_Finaceiro == situacao && S.DataMovimentacao_Finaceiro >= dataInicial && S.DataMovimentacao_Finaceiro <= dataFinal && S.TipoOperacao_Finaceiro == tipoOperacao);
+                    return movimentoFinaceiros;
+                }
             }
         }
 
