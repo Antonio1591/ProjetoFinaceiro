@@ -36,6 +36,7 @@
             this.saidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarValorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.finaceiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.finaceiroToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlValoresMensal = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblValorTotal = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtValorTotal = new System.Windows.Forms.TextBox();
-            this.finaceiroToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlValoresMensal.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -121,6 +121,13 @@
             this.finaceiroToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.finaceiroToolStripMenuItem.Text = "Relatorios";
             // 
+            // finaceiroToolStripMenuItem1
+            // 
+            this.finaceiroToolStripMenuItem1.Name = "finaceiroToolStripMenuItem1";
+            this.finaceiroToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.finaceiroToolStripMenuItem1.Text = "Finaceiro";
+            this.finaceiroToolStripMenuItem1.Click += new System.EventHandler(this.finaceiroToolStripMenuItem1_Click);
+            // 
             // pnlValoresMensal
             // 
             this.pnlValoresMensal.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -149,7 +156,7 @@
             // 
             this.lblValorTotal.AutoSize = true;
             this.lblValorTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblValorTotal.Location = new System.Drawing.Point(48, 2);
+            this.lblValorTotal.Location = new System.Drawing.Point(39, 2);
             this.lblValorTotal.Name = "lblValorTotal";
             this.lblValorTotal.Size = new System.Drawing.Size(0, 15);
             this.lblValorTotal.TabIndex = 6;
@@ -219,16 +226,10 @@
             this.txtValorTotal.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtValorTotal.Location = new System.Drawing.Point(504, 372);
             this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.ReadOnly = true;
             this.txtValorTotal.Size = new System.Drawing.Size(94, 22);
             this.txtValorTotal.TabIndex = 4;
             this.txtValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // finaceiroToolStripMenuItem1
-            // 
-            this.finaceiroToolStripMenuItem1.Name = "finaceiroToolStripMenuItem1";
-            this.finaceiroToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.finaceiroToolStripMenuItem1.Text = "Finaceiro";
-            this.finaceiroToolStripMenuItem1.Click += new System.EventHandler(this.finaceiroToolStripMenuItem1_Click);
             // 
             // frmPrincipal
             // 

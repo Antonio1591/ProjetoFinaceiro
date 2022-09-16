@@ -30,6 +30,9 @@ namespace ProjetoFinaceiro.Designer
 
             _tiposService.Salvar(new Modelo.Tipos(txtNomeOperacao.Text, cmbTipoOperacao.Text, txtDescriscao.Text, "ATIVO"));
             MessageBox.Show("Operação cadastrada! ", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            txtNomeOperacao.Clear();
+            txtDescriscao.Clear();
+            cmbTipoOperacao.SelectedIndex = -1;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

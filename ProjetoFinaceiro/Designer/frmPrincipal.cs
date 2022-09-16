@@ -54,14 +54,13 @@ namespace ProjetoFinaceiro.Designer
             lblValorTotal.Text =   valorTotal.ToString("N2");
 
             if (valorTotal > 0)
-                txtValorTotal.BackColor = Color.LightGreen;
+                lblValorTotal.ForeColor = Color.LightGreen;
             else
-            txtValorTotal.ForeColor = Color.FromArgb(255, 91, 96);
-            lblValorTotal.ForeColor = Color.FromArgb(255, 91, 96);
+                lblValorTotal.ForeColor = Color.FromArgb(255, 91, 96);
+            //txtValorTotal.ForeColor = Color.FromArgb(255, 91, 96);
 
             //txtValorEntrada.Text = dtfinal.ToString();
         }
-
         private void adicionarValorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = _serviceProvider.GetService<frmSaida>();

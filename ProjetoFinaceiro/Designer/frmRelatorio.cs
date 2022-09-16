@@ -45,7 +45,7 @@ namespace ProjetoFinaceiro.Designer
                 txtNomeoperacao.DataGridView.Rows.Add(Movimentos.NomeOperacao_Finaceiro);
                 txtDataLancamento.DataGridView.Rows[celula].Cells[1].Value = Movimentos.DataMovimentacao_Finaceiro;
                 txtTipoOperracao.DataGridView.Rows[celula].Cells[2].Value = Movimentos.TipoOperacao_Finaceiro;
-                txtValor.DataGridView.Rows[celula].Cells[3].Value = Movimentos.ValorEntrada_Finaceiro + Movimentos.ValorSaida_Finaceiro;
+                txtValor.DataGridView.Rows[celula].Cells[3].Value = (Movimentos.ValorEntrada_Finaceiro + Movimentos.ValorSaida_Finaceiro).ToString("N2");
                 txtSituacao.DataGridView.Rows[celula].Cells[4].Value = Movimentos.Situacao_Finaceiro;
                 celula++;
             }

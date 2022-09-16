@@ -15,7 +15,7 @@ namespace ProjetoFinaceiro.Modelo
        protected MovimentoFinaceiro() { }
         public MovimentoFinaceiro(string nomeOpercaoFinaceiro,string tipoOperacaoFinaceiro, double valorEntradaFinaceiro, double valorSaidaFinaceiro, DateTime dataMovimentacaoFinaceiro, string situacaoFinaceiro)
         {
-            NomeOperacao_Finaceiro=nomeOpercaoFinaceiro;
+            NomeOperacao_Finaceiro =nomeOpercaoFinaceiro;
             TipoOperacao_Finaceiro = tipoOperacaoFinaceiro;
             ValorEntrada_Finaceiro = valorEntradaFinaceiro;
             ValorSaida_Finaceiro = valorSaidaFinaceiro;

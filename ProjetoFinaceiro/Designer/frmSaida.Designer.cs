@@ -60,17 +60,18 @@
             this.txtValor.Location = new System.Drawing.Point(168, 163);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(160, 23);
-            this.txtValor.TabIndex = 8;
+            this.txtValor.TabIndex = 3;
             this.txtValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // cmbSaidas
             // 
             this.cmbSaidas.BackColor = System.Drawing.Color.LightBlue;
+            this.cmbSaidas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSaidas.FormattingEnabled = true;
             this.cmbSaidas.Location = new System.Drawing.Point(168, 102);
             this.cmbSaidas.Name = "cmbSaidas";
             this.cmbSaidas.Size = new System.Drawing.Size(160, 23);
-            this.cmbSaidas.TabIndex = 7;
+            this.cmbSaidas.TabIndex = 2;
             // 
             // btnCancelar
             // 
@@ -78,7 +79,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(193, 220);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(108, 36);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
@@ -89,7 +90,7 @@
             this.btnInserir.Location = new System.Drawing.Point(47, 220);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(108, 36);
-            this.btnInserir.TabIndex = 5;
+            this.btnInserir.TabIndex = 4;
             this.btnInserir.Text = "Inserir Saida";
             this.btnInserir.UseVisualStyleBackColor = false;
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);

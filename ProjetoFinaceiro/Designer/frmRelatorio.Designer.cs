@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtNomeoperacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDataLancamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTipoOperracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtInicial = new System.Windows.Forms.DateTimePicker();
             this.dtFinal = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,11 +45,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtNomeoperacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtDataLancamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtTipoOperracao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,6 +62,36 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(545, 357);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // txtNomeoperacao
+            // 
+            this.txtNomeoperacao.HeaderText = "Nome da Operação";
+            this.txtNomeoperacao.Name = "txtNomeoperacao";
+            this.txtNomeoperacao.ReadOnly = true;
+            // 
+            // txtDataLancamento
+            // 
+            this.txtDataLancamento.HeaderText = "Data da Operação";
+            this.txtDataLancamento.Name = "txtDataLancamento";
+            this.txtDataLancamento.ReadOnly = true;
+            // 
+            // txtTipoOperracao
+            // 
+            this.txtTipoOperracao.HeaderText = "Tipo da Operação";
+            this.txtTipoOperracao.Name = "txtTipoOperracao";
+            this.txtTipoOperracao.ReadOnly = true;
+            // 
+            // txtValor
+            // 
+            this.txtValor.HeaderText = "Valor da Operação";
+            this.txtValor.Name = "txtValor";
+            this.txtValor.ReadOnly = true;
+            // 
+            // txtSituacao
+            // 
+            this.txtSituacao.HeaderText = "Situação";
+            this.txtSituacao.Name = "txtSituacao";
+            this.txtSituacao.ReadOnly = true;
             // 
             // dtInicial
             // 
@@ -108,8 +138,8 @@
             this.cmbSituacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSituacao.FormattingEnabled = true;
             this.cmbSituacao.Items.AddRange(new object[] {
-            "Ativo",
-            "Inativo",
+            "ATIVO",
+            "INATIVO",
             "TODOS"});
             this.cmbSituacao.Location = new System.Drawing.Point(409, 84);
             this.cmbSituacao.Name = "cmbSituacao";
@@ -176,36 +206,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtNomeoperacao
-            // 
-            this.txtNomeoperacao.HeaderText = "Nome da Operação";
-            this.txtNomeoperacao.Name = "txtNomeoperacao";
-            this.txtNomeoperacao.ReadOnly = true;
-            // 
-            // txtDataLancamento
-            // 
-            this.txtDataLancamento.HeaderText = "Data da Operação";
-            this.txtDataLancamento.Name = "txtDataLancamento";
-            this.txtDataLancamento.ReadOnly = true;
-            // 
-            // txtTipoOperracao
-            // 
-            this.txtTipoOperracao.HeaderText = "Tipo da Operação";
-            this.txtTipoOperracao.Name = "txtTipoOperracao";
-            this.txtTipoOperracao.ReadOnly = true;
-            // 
-            // txtValor
-            // 
-            this.txtValor.HeaderText = "Valor da Operação";
-            this.txtValor.Name = "txtValor";
-            this.txtValor.ReadOnly = true;
-            // 
-            // txtSituacao
-            // 
-            this.txtSituacao.HeaderText = "Situação";
-            this.txtSituacao.Name = "txtSituacao";
-            this.txtSituacao.ReadOnly = true;
-            // 
             // frmRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -224,6 +224,7 @@
             this.Controls.Add(this.dtInicial);
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmRelatorio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRelatorio";
             this.Load += new System.EventHandler(this.frmRelatorio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

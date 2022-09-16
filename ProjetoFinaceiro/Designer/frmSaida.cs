@@ -46,6 +46,8 @@ namespace ProjetoFinaceiro.Designer
             _SaidaFinaceiraService.Salvar(new Modelo.SaidaFinaceira(cmbSaidas.Text, valor, DateTime.Now, "ATIVO"));
             MessageBox.Show("Operação cadastrada! ", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             _movimentoFinaceiroService.Salvar(new Modelo.MovimentoFinaceiro(cmbSaidas.Text, "Saida", 0, valor, DateTime.Now, "ATIVO"));
+            txtValor.Clear();
+            cmbSaidas.SelectedIndex = -1;
         }
 
         private void frmSaida_Load(object sender, EventArgs e)

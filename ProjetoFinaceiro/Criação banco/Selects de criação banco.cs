@@ -21,8 +21,9 @@ namespace ProjetoFinaceiro.Criação_banco
 ";
         public string criacaoBancoMovimentoFinaceiro =
               @" CREATE TABLE `projetofinaceiro`.`movimentofinaceiro` (`Id` INT NOT NULL AUTO_INCREMENT,
+                      `NomeOperacao_Finaceiro` VARCHAR(45) NOT NULL,
                       `TipoOperacao_Finaceiro` VARCHAR(45) NOT NULL,`ValorEntrada_Finaceiro` DOUBLE NOT NULL,
-                      `ValorSaida_Finaceiro` DOUBLE NOT NULL,`DataMovimentacao_Finaceiro` DOUBLE NOT NULL,
+                      `ValorSaida_Finaceiro` DOUBLE NOT NULL,`DataMovimentacao_Finaceiro` DATETIME NOT NULL,
                       `Situacao_Finaceiro` VARCHAR(45) NOT NULL, PRIMARY KEY (`Id`));";
 
         public string criacaoBancoEntradaFinaceira = @"CREATE TABLE `projetofinaceiro`.`entradafinaceira` (

@@ -71,6 +71,8 @@ namespace ProjetoFinaceiro.Designer
             _EntradaFinaceiraService.Salvar(new Modelo.EntradaFinaceira(cmbEntradas.Text,valor, DateTime.Now, "ATIVO"));
             MessageBox.Show("Operação cadastrada! ", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             _MovimentoFinaceiroService.Salvar(new Modelo.MovimentoFinaceiro(cmbEntradas.Text, "Entrada", valor, 0, DateTime.Now, "ATIVO"));
+            substituicaoTxtValor1.Clear();
+           cmbEntradas.SelectedIndex = -1;
         }
     }
 }

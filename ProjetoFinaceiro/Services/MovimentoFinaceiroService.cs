@@ -30,14 +30,14 @@ namespace ProjetoFinaceiro.Services
         {
             DateTime dtinicial = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1);
             DateTime dtfinal = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1, 23, 59, 59).AddDays(-1);
-            var valor = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.Situacao_Finaceiro == "Ativo" && S.DataMovimentacao_Finaceiro >= dtinicial && S.DataMovimentacao_Finaceiro <= dtfinal).Sum(s => s.ValorEntrada_Finaceiro);
+            var valor = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.Situacao_Finaceiro == "ATIVO" && S.DataMovimentacao_Finaceiro >= dtinicial && S.DataMovimentacao_Finaceiro <= dtfinal).Sum(s => s.ValorEntrada_Finaceiro);
             return valor;
         }
         public double ValorUltimoMesSaida()
         {
             DateTime dtinicial = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1);
             DateTime dtfinal = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1, 23, 59, 59).AddDays(-1);
-            var valor = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.Situacao_Finaceiro == "Ativo" && S.DataMovimentacao_Finaceiro >= dtinicial && S.DataMovimentacao_Finaceiro <= dtfinal).Sum(s => s.ValorSaida_Finaceiro);
+            var valor = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.Situacao_Finaceiro == "ATIVO" && S.DataMovimentacao_Finaceiro >= dtinicial && S.DataMovimentacao_Finaceiro <= dtfinal).Sum(s => s.ValorSaida_Finaceiro);
             return valor;
         }
 
@@ -45,7 +45,7 @@ namespace ProjetoFinaceiro.Services
         {
             DateTime dtinicial = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1);
             DateTime dtfinal = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1, 23, 59, 59).AddDays(-1);
-            var valor = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.Situacao_Finaceiro == "Ativo" && S.DataMovimentacao_Finaceiro >= dtinicial && S.DataMovimentacao_Finaceiro <= dtfinal).Sum(s => s.ValorEntrada_Finaceiro - s.ValorSaida_Finaceiro);
+            var valor = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.Situacao_Finaceiro == "ATIVO" && S.DataMovimentacao_Finaceiro >= dtinicial && S.DataMovimentacao_Finaceiro <= dtfinal).Sum(s => s.ValorEntrada_Finaceiro - s.ValorSaida_Finaceiro);
             return valor;
         }
 

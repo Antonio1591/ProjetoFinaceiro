@@ -66,6 +66,7 @@
             // cmbEntradas
             // 
             this.cmbEntradas.BackColor = System.Drawing.Color.BurlyWood;
+            this.cmbEntradas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEntradas.FormattingEnabled = true;
             this.cmbEntradas.Location = new System.Drawing.Point(168, 102);
             this.cmbEntradas.Name = "cmbEntradas";
