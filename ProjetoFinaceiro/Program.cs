@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ProjetoFinaceiro.Data;
 using ProjetoFinaceiro.Designer;
+using ProjetoFinaceiro.Designer.Cadastro;
 using ProjetoFinaceiro.Modelo;
 using ProjetoFinaceiro.Services;
 
@@ -36,6 +37,7 @@ namespace ProjetoFinaceiro
             services.AddTransient<TiposService>();
             services.AddTransient<frmSaida>();
             services.AddTransient<frmRelatorio>();
+            services.AddTransient<frmAlterarTipoCadastro>();
 
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
 

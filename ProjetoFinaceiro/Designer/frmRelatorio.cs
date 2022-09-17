@@ -26,7 +26,7 @@ namespace ProjetoFinaceiro.Designer
 
         private void frmRelatorio_Load(object sender, EventArgs e)
         {
-            dtInicial.Value=DateTime.Now;
+            dtInicial.Value=DateTime.Now.Date;
             dtFinal.Value = DateTime.Now;
             cmbTipoOPeracao.Text = "TODOS";
             cmbSituacao.Text = "TODOS";

@@ -13,13 +13,13 @@ namespace ProjetoFinaceiro.Services
     public class TiposService
     {
         private readonly FinanceiroDbContext _financeiroDbContext;
-        
+
         public TiposService(FinanceiroDbContext financeiroDbContext)
         {
             _financeiroDbContext = financeiroDbContext;
         }
 
-       public async Task<IEnumerable<Tipos>> ObterTipos()
+        public async Task<IEnumerable<Tipos>> ObterTipos()
         {
             return await _financeiroDbContext.Tipos.ToListAsync();
         }
@@ -32,7 +32,7 @@ namespace ProjetoFinaceiro.Services
 
         public IEnumerable<Tipos> obterTipoEntrada()
         {
-            var tipos= _financeiroDbContext.Tipos.Where(T =>T.Tipo == "Entrada").ToList();
+            var tipos = _financeiroDbContext.Tipos.Where(T => T.Tipo == "Entrada").ToList();
             return tipos;
         }
         public IEnumerable<Tipos> obterTipoSaida()
@@ -40,5 +40,34 @@ namespace ProjetoFinaceiro.Services
             var tipos = _financeiroDbContext.Tipos.Where(T => T.Tipo == "Saida").ToList();
             return tipos;
         }
+
+        public Tipos obterTipo(int ID, string nome)
+        {
+            try
+            {
+                if (nome == "")
+                {
+                    var tipos = _financeiroDbContext.Tipos.Where(T => T.Id == ID).FirstOrDefault();
+                    return tipos;
+                }
+                else
+                {
+                    //var tipos = _financeiroDbContext.Tipos.Where(T => EF.Functions.Like(T.Nome, $"%{nome}%")).FirstOrDefault();
+                    //return tipos;
+
+                    var tipos = _financeiroDbContext.Tipos.Where(T =>T.Nome== nome).FirstOrDefault();
+                    return tipos;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Usuario ou codigo Invalido");
+                return null;
+            }
+
+        }
     }
 }
+
+
+

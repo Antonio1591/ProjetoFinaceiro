@@ -31,6 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.alterarCadastroExistenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarEntradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +64,7 @@
             this.finaceiroToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(658, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(663, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -77,11 +79,27 @@
             // 
             // tiposDeEntradasToolStripMenuItem
             // 
+            this.tiposDeEntradasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastroToolStripMenuItem1,
+            this.alterarCadastroExistenteToolStripMenuItem});
             this.tiposDeEntradasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tiposDeEntradasToolStripMenuItem.Name = "tiposDeEntradasToolStripMenuItem";
             this.tiposDeEntradasToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.tiposDeEntradasToolStripMenuItem.Text = "Tipos De Entradas/Saidas";
-            this.tiposDeEntradasToolStripMenuItem.Click += new System.EventHandler(this.tiposDeEntradasToolStripMenuItem_Click);
+            // 
+            // cadastroToolStripMenuItem1
+            // 
+            this.cadastroToolStripMenuItem1.Name = "cadastroToolStripMenuItem1";
+            this.cadastroToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
+            this.cadastroToolStripMenuItem1.Text = "Cadastro";
+            this.cadastroToolStripMenuItem1.Click += new System.EventHandler(this.cadastroToolStripMenuItem1_Click);
+            // 
+            // alterarCadastroExistenteToolStripMenuItem
+            // 
+            this.alterarCadastroExistenteToolStripMenuItem.Name = "alterarCadastroExistenteToolStripMenuItem";
+            this.alterarCadastroExistenteToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.alterarCadastroExistenteToolStripMenuItem.Text = "Alterar cadastro existente";
+            this.alterarCadastroExistenteToolStripMenuItem.Click += new System.EventHandler(this.alterarCadastroExistenteToolStripMenuItem_Click);
             // 
             // entradasToolStripMenuItem
             // 
@@ -236,7 +254,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProjetoFinaceiro.Properties.Resources.Finaceiro_ico;
-            this.ClientSize = new System.Drawing.Size(658, 425);
+            this.ClientSize = new System.Drawing.Size(663, 425);
             this.Controls.Add(this.txtValorTotal);
             this.Controls.Add(this.pnlValoresMensal);
             this.Controls.Add(this.menuStrip1);
@@ -277,5 +295,7 @@
         private Label lblValorTotal;
         private Panel panel1;
         private ToolStripMenuItem finaceiroToolStripMenuItem1;
+        private ToolStripMenuItem cadastroToolStripMenuItem1;
+        private ToolStripMenuItem alterarCadastroExistenteToolStripMenuItem;
     }
 }

@@ -55,7 +55,8 @@ namespace ProjetoFinaceiro.Designer
         private void btnInserir_Click(object sender, EventArgs e)
         {
 
-            double valor = Convert.ToDouble(substituicaoTxtValor1.Text.Replace("R$ ", "")); ;
+            double valor = Convert.ToDouble(substituicaoTxtValor1.Text.Replace("R$ ", "")) ;
+            
 
             DateTime data= DateTime.Now;
             MessageBox.Show(valor.ToString(), data.ToString());

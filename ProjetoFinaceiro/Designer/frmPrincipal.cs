@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualBasic;
+using ProjetoFinaceiro.Designer.Cadastro;
 using ProjetoFinaceiro.Modelo;
 using ProjetoFinaceiro.Services;
 using System;
@@ -34,14 +35,12 @@ namespace ProjetoFinaceiro.Designer
             form.Show();
         }
 
-        private void tiposDeEntradasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cadastroToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //var form = serviceProvider.GetService<frmCadastroTiposEntradaESaida>();
             var form1 = _serviceProvider.GetService<frmCadastroTiposEntradaESaida>();
             form1.Show();
 
         }
-
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             var valorEntrada = _MovimentoFinaceiroService.ValorUltimoMesEntrada();
@@ -70,6 +69,12 @@ namespace ProjetoFinaceiro.Designer
         private void finaceiroToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             var form = _serviceProvider.GetService<frmRelatorio>();
+            form.Show();
+        }
+
+        private void alterarCadastroExistenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = _serviceProvider.GetService<frmAlterarTipoCadastro>();
             form.Show();
         }
     }
