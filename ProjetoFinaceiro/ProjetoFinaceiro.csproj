@@ -9,6 +9,14 @@
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;CS8603</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;CS8603</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Criar tabela Banco\**" />
     <EmbeddedResource Remove="Criar tabela Banco\**" />

@@ -30,15 +30,16 @@
         {
             this.txtDescriscao = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.cmbTipoOperacao = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblPesquisar = new System.Windows.Forms.Label();
             this.txtNomeOperacao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnInserir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtDescriscao
@@ -60,16 +61,16 @@
             this.label3.TabIndex = 17;
             this.label3.Text = "Descrisção ";
             // 
-            // btnCancelar
+            // btnLimpar
             // 
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCancelar.Location = new System.Drawing.Point(177, 269);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(134, 39);
-            this.btnCancelar.TabIndex = 16;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnLimpar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLimpar.Location = new System.Drawing.Point(177, 269);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(134, 39);
+            this.btnLimpar.TabIndex = 16;
+            this.btnLimpar.Text = "limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnBuscar
             // 
@@ -95,15 +96,15 @@
             this.cmbTipoOperacao.Size = new System.Drawing.Size(149, 24);
             this.cmbTipoOperacao.TabIndex = 12;
             // 
-            // label4
+            // lblPesquisar
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(82, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 25);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Alterar cadastro";
+            this.lblPesquisar.AutoSize = true;
+            this.lblPesquisar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPesquisar.Location = new System.Drawing.Point(82, 9);
+            this.lblPesquisar.Name = "lblPesquisar";
+            this.lblPesquisar.Size = new System.Drawing.Size(177, 25);
+            this.lblPesquisar.TabIndex = 13;
+            this.lblPesquisar.Text = "Pesquisar cadastro";
             // 
             // txtNomeOperacao
             // 
@@ -139,7 +140,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(162, 66);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(149, 22);
-            this.txtCodigo.TabIndex = 20;
+            this.txtCodigo.TabIndex = 10;
             // 
             // label5
             // 
@@ -151,6 +152,18 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Codigo";
             // 
+            // btnInserir
+            // 
+            this.btnInserir.Enabled = false;
+            this.btnInserir.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnInserir.Location = new System.Drawing.Point(4, 269);
+            this.btnInserir.Name = "btnInserir";
+            this.btnInserir.Size = new System.Drawing.Size(134, 39);
+            this.btnInserir.TabIndex = 18;
+            this.btnInserir.Text = "Inserir";
+            this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Visible = false;
+            // 
             // frmAlterarTipoCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -161,13 +174,14 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtDescriscao);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.cmbTipoOperacao);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblPesquisar);
             this.Controls.Add(this.txtNomeOperacao);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnInserir);
             this.Name = "frmAlterarTipoCadastro";
             this.Text = "frmAlterarTipoCadastro";
             this.Load += new System.EventHandler(this.frmAlterarTipoCadastro_Load);
@@ -180,14 +194,15 @@
 
         private TextBox txtDescriscao;
         private Label label3;
-        private Button btnCancelar;
+        private Button btnLimpar;
         private Button btnBuscar;
         private ComboBox cmbTipoOperacao;
-        private Label label4;
+        private Label lblPesquisar;
         private TextBox txtNomeOperacao;
         private Label label2;
         private Label label1;
         private TextBox txtCodigo;
         private Label label5;
+        private Button btnInserir;
     }
 }

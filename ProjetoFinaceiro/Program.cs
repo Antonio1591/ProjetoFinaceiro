@@ -43,7 +43,7 @@ namespace ProjetoFinaceiro
 
             services.AddDbContext<FinanceiroDbContext>(opt =>
             {
-                opt.UseMySql("Server=localhost;port=3306;User Id=root; database=projetofinaceiro;password=GH#@Mn47spW!HH$yvv76", serverVersion)
+                opt.UseMySql("Server=localhost;port=3306;User Id=root; database=projetofinaceiro;password=123456", serverVersion)
                 .LogTo(Console.WriteLine, LogLevel.Information);
             });
 

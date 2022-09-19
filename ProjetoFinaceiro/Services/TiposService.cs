@@ -43,28 +43,11 @@ namespace ProjetoFinaceiro.Services
 
         public Tipos obterTipo(int ID, string nome)
         {
-            try
-            {
-                if (nome == "")
-                {
-                    var tipos = _financeiroDbContext.Tipos.Where(T => T.Id == ID).FirstOrDefault();
-                    return tipos;
-                }
-                else
-                {
-                    //var tipos = _financeiroDbContext.Tipos.Where(T => EF.Functions.Like(T.Nome, $"%{nome}%")).FirstOrDefault();
-                    //return tipos;
-
-                    var tipos = _financeiroDbContext.Tipos.Where(T =>T.Nome== nome).FirstOrDefault();
-                    return tipos;
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Usuario ou codigo Invalido");
+            if (ID <= 0 && string.IsNullOrEmpty(nome))
                 return null;
-            }
-
+            
+            var tipos = _financeiroDbContext.Tipos.Where(T => T.Id == ID || T.Nome.Contains(nome)).FirstOrDefault();
+            return tipos;
         }
     }
 }

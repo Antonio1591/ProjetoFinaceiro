@@ -29,20 +29,34 @@ namespace ProjetoFinaceiro.Designer.Cadastro
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja fechar essa tela? ", "Fechar tela", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                this.Close();
+            //if (MessageBox.Show("Deseja fechar essa tela? ", "Fechar tela", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //    this.Close();
+            txtCodigo.Clear();
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Modelo.Tipos tipo = _tiposService.obterTipo(int.Parse(txtCodigo.Text),txtNomeOperacao.Text);
+            Modelo.Tipos tipo = _tiposService.obterTipo(string.IsNullOrWhiteSpace(txtCodigo.Text) ? 0 : int.Parse(txtCodigo.Text), txtNomeOperacao.Text);
+
+
+            if(tipo == null)
+            {
+                MessageBox.Show("Informação Invalida, codigo ou nome não encontrado");
+                return;
+            }
             txtCodigo.Text = tipo.Id.ToString();
             txtNomeOperacao.Text = tipo.Nome;
-            cmbTipoOperacao.Items.Add(tipo.Situacao.ToString());
+            cmbTipoOperacao.Text = tipo.Tipo;
             txtDescriscao.Text=tipo.Descricao.ToString();
-
+            lblPesquisar.Text = "Alterar Cadastro";
+            btnInserir.Enabled = true;
+            btnInserir.Visible = true;
+            txtCodigo.Enabled = false;
             cmbTipoOperacao.Enabled = true;
             txtDescriscao.Enabled = true;
+            btnBuscar.Enabled = false;
+            btnBuscar.Visible = false;
         }
     }
 }
