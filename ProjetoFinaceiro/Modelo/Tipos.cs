@@ -12,17 +12,25 @@ namespace ProjetoFinaceiro.Modelo
     public class Tipos
     {
         protected Tipos() { }
-         
-        public Tipos(string nome, string tipo, string descricao,string situacao)
-        {      
+
+        public Tipos(string nome, string tipo, string descricao, string situacao)
+        {
             Nome = nome;
-            Tipo=tipo;
+            Tipo = tipo;
+            Descricao = descricao;
+            Situacao = situacao;
+        }
+        public Tipos(int ID, string nome, string tipo, string descricao, string situacao)
+        {
+            Id = ID;
+            Nome = nome;
+            Tipo = tipo;
             Descricao = descricao;
             Situacao = situacao;
         }
 
         [Key]
-        public int Id{ get; set; }
+        public int Id { get; set; }
 
 
         [Required(ErrorMessage = "O nome e obrigatorio")]

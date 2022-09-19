@@ -45,12 +45,34 @@ namespace ProjetoFinaceiro.Services
         {
             if (ID <= 0 && string.IsNullOrEmpty(nome))
                 return null;
-            
-            var tipos = _financeiroDbContext.Tipos.Where(T => T.Id == ID || T.Nome.Contains(nome)).FirstOrDefault();
+            if (!string.IsNullOrEmpty(nome))
+            {
+                var tipos = _financeiroDbContext.Tipos.Where(T => T.Nome.Contains(nome)).FirstOrDefault();
+                return tipos;
+            }
+            else
+            {
+                var tipos = _financeiroDbContext.Tipos.Where(T => T.Id == ID).FirstOrDefault();
+                return tipos;
+            }
+        }
+        public Tipos ObterPorId(int ID)
+        {
+            if (ID <= 0)
+                return null;
+
+            var tipos = _financeiroDbContext.Tipos.Where(T => T.Id == ID).FirstOrDefault();
             return tipos;
+
+        }
+
+        public async  void  Commit(Tipos tipo)
+        {
+            _financeiroDbContext.Tipos.Add(tipo);
+             await _financeiroDbContext.Update(Nome,tipo);
+
         }
     }
 }
-
 
 
