@@ -13,6 +13,16 @@ namespace ProjetoFinaceiro.Modelo
     public class MovimentoFinaceiro
     {
        protected MovimentoFinaceiro() { }
+        public MovimentoFinaceiro(int ID, string nomeOpercaoFinaceiro, string tipoOperacaoFinaceiro, double valorEntradaFinaceiro, double valorSaidaFinaceiro, DateTime dataMovimentacaoFinaceiro, string situacaoFinaceiro)
+        {
+            Id=ID;
+            NomeOperacao_Finaceiro = nomeOpercaoFinaceiro;
+            TipoOperacao_Finaceiro = tipoOperacaoFinaceiro;
+            ValorEntrada_Finaceiro = valorEntradaFinaceiro;
+            ValorSaida_Finaceiro = valorSaidaFinaceiro;
+            DataMovimentacao_Finaceiro = dataMovimentacaoFinaceiro;
+            Situacao_Finaceiro = situacaoFinaceiro;
+        }
         public MovimentoFinaceiro(string nomeOpercaoFinaceiro,string tipoOperacaoFinaceiro, double valorEntradaFinaceiro, double valorSaidaFinaceiro, DateTime dataMovimentacaoFinaceiro, string situacaoFinaceiro)
         {
             NomeOperacao_Finaceiro =nomeOpercaoFinaceiro;

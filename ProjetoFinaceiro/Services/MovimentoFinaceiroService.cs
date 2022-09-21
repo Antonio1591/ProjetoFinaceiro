@@ -49,52 +49,55 @@ namespace ProjetoFinaceiro.Services
             return valor;
         }
 
-        public DateTime DataInicialUltimoMes()
+        public MovimentoFinaceiro ObtermovimentoFinaceiro(int ID, string nome)
         {
-            DateTime dtinicial = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1);
-            return dtinicial;
-        }
-
-
-        public DateTime DataFinalUltimoMes()
-        {
-            DateTime dtfinal = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1, 23, 59, 59).AddDays(-1);
-            return dtfinal;
-        }
-
-        public IEnumerable<MovimentoFinaceiro> RelatorioPersonalizado(DateTime dataInicial, DateTime dataFinal, string tipoOperacao, string situacao)
-        {
-
-
-            if (situacao == "TODOS")
+            if (ID <= 0 && string.IsNullOrEmpty(nome))
+                return null;
+            if (!string.IsNullOrEmpty(nome))
             {
-                if (tipoOperacao == "TODOS")
-                {
-                    IQueryable<MovimentoFinaceiro> movimentoFinaceiros = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.DataMovimentacao_Finaceiro >= dataInicial && S.DataMovimentacao_Finaceiro <= dataFinal);
-
-                    return movimentoFinaceiros;
-                }
-                else
-                {
-                    IQueryable<MovimentoFinaceiro> movimentoFinaceiros = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.DataMovimentacao_Finaceiro >= dataInicial && S.DataMovimentacao_Finaceiro <= dataFinal && S.TipoOperacao_Finaceiro == tipoOperacao);
-
-                    return movimentoFinaceiros;
-                }
+                var tipos = _financeiroDbContext.MovimentoFinaceiro.Where(T => T.NomeOperacao_Finaceiro.Contains(nome)).FirstOrDefault();
+                return tipos;
             }
             else
             {
-                if (tipoOperacao == "TODOS")
-                {
-                    IQueryable<MovimentoFinaceiro> movimentoFinaceiros = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.Situacao_Finaceiro == situacao && S.DataMovimentacao_Finaceiro >= dataInicial && S.DataMovimentacao_Finaceiro <= dataFinal);
-                    return movimentoFinaceiros;
-                }
-                else
-                {
-                    
-                    IQueryable<MovimentoFinaceiro> movimentoFinaceiros = _financeiroDbContext.MovimentoFinaceiro.Where(S => S.Situacao_Finaceiro == situacao && S.DataMovimentacao_Finaceiro >= dataInicial && S.DataMovimentacao_Finaceiro <= dataFinal && S.TipoOperacao_Finaceiro == tipoOperacao);
-                    return movimentoFinaceiros;
-                }
+                var tipos = _financeiroDbContext.MovimentoFinaceiro.Where(T => T.Id == ID).FirstOrDefault();
+                return tipos;
             }
+        }
+        public IEnumerable<MovimentoFinaceiro> RelatorioPersonalizado(DateTime dataInicial, DateTime dataFinal, string tipoOperacao, string situacao)
+        {
+
+            var querry = _financeiroDbContext.MovimentoFinaceiro.AsNoTracking();
+
+            if(situacao != "TODOS")
+            {
+                querry = querry.Where(T => T.Situacao_Finaceiro == situacao);
+            }
+            if(tipoOperacao != "TODOS")
+            {
+                querry = querry.Where(T => T.TipoOperacao_Finaceiro == tipoOperacao);
+            }
+
+           querry = querry.Where(S => S.DataMovimentacao_Finaceiro >= dataInicial && S.DataMovimentacao_Finaceiro <= dataFinal);
+
+            return querry.ToList();
+        }
+        public async void InserirMovimentacao(MovimentoFinaceiro movimentacao)
+        {
+            _financeiroDbContext.MovimentoFinaceiro.Add(movimentacao);
+
+        }
+        public async void UpdateMovimentacao(MovimentoFinaceiro movimentacao)
+        {
+            _financeiroDbContext.MovimentoFinaceiro.Update(movimentacao);
+
+        }
+
+        public async void CommitMovimentacao()
+        {
+
+            await _financeiroDbContext.SaveChangesAsync();
+
         }
 
     }

@@ -35,8 +35,7 @@
             this.alterarCadastroExistenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarEntradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adicionarValorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adicionarValorSaidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.finaceiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.finaceiroToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlValoresMensal = new System.Windows.Forms.Panel();
@@ -49,6 +48,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtValorTotal = new System.Windows.Forms.TextBox();
+            this.alterarValorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlValoresMensal.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -60,7 +60,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroToolStripMenuItem,
             this.entradasToolStripMenuItem,
-            this.saidasToolStripMenuItem,
             this.finaceiroToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -104,32 +103,26 @@
             // entradasToolStripMenuItem
             // 
             this.entradasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adicionarEntradaToolStripMenuItem});
+            this.adicionarEntradaToolStripMenuItem,
+            this.adicionarValorSaidaToolStripMenuItem,
+            this.alterarValorToolStripMenuItem});
             this.entradasToolStripMenuItem.Name = "entradasToolStripMenuItem";
-            this.entradasToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.entradasToolStripMenuItem.Text = "Entradas";
+            this.entradasToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
+            this.entradasToolStripMenuItem.Text = "Movimentação";
             // 
             // adicionarEntradaToolStripMenuItem
             // 
             this.adicionarEntradaToolStripMenuItem.Name = "adicionarEntradaToolStripMenuItem";
-            this.adicionarEntradaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.adicionarEntradaToolStripMenuItem.Text = "Adicionar Valor";
+            this.adicionarEntradaToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.adicionarEntradaToolStripMenuItem.Text = "Adicionar Valor Entrada";
             this.adicionarEntradaToolStripMenuItem.Click += new System.EventHandler(this.adicionarEntradaToolStripMenuItem_Click);
             // 
-            // saidasToolStripMenuItem
+            // adicionarValorSaidaToolStripMenuItem
             // 
-            this.saidasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adicionarValorToolStripMenuItem});
-            this.saidasToolStripMenuItem.Name = "saidasToolStripMenuItem";
-            this.saidasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.saidasToolStripMenuItem.Text = "Saidas";
-            // 
-            // adicionarValorToolStripMenuItem
-            // 
-            this.adicionarValorToolStripMenuItem.Name = "adicionarValorToolStripMenuItem";
-            this.adicionarValorToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.adicionarValorToolStripMenuItem.Text = "Adicionar Valor";
-            this.adicionarValorToolStripMenuItem.Click += new System.EventHandler(this.adicionarValorToolStripMenuItem_Click);
+            this.adicionarValorSaidaToolStripMenuItem.Name = "adicionarValorSaidaToolStripMenuItem";
+            this.adicionarValorSaidaToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.adicionarValorSaidaToolStripMenuItem.Text = "Adicionar Valor Saida";
+            this.adicionarValorSaidaToolStripMenuItem.Click += new System.EventHandler(this.adicionarValorSaidaToolStripMenuItem_Click);
             // 
             // finaceiroToolStripMenuItem
             // 
@@ -142,7 +135,7 @@
             // finaceiroToolStripMenuItem1
             // 
             this.finaceiroToolStripMenuItem1.Name = "finaceiroToolStripMenuItem1";
-            this.finaceiroToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.finaceiroToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.finaceiroToolStripMenuItem1.Text = "Finaceiro";
             this.finaceiroToolStripMenuItem1.Click += new System.EventHandler(this.finaceiroToolStripMenuItem1_Click);
             // 
@@ -249,6 +242,13 @@
             this.txtValorTotal.TabIndex = 4;
             this.txtValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // alterarValorToolStripMenuItem
+            // 
+            this.alterarValorToolStripMenuItem.Name = "alterarValorToolStripMenuItem";
+            this.alterarValorToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.alterarValorToolStripMenuItem.Text = "Alterar Valor ";
+            this.alterarValorToolStripMenuItem.Click += new System.EventHandler(this.alterarValorToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -278,7 +278,6 @@
         #endregion
         private MenuStrip menuStrip1;
         private ToolStripMenuItem finaceiroToolStripMenuItem;
-        private ToolStripMenuItem saidasToolStripMenuItem;
         private ToolStripMenuItem entradasToolStripMenuItem;
         private Panel pnlValoresMensal;
         private Label label4;
@@ -291,11 +290,12 @@
         private ToolStripMenuItem adicionarEntradaToolStripMenuItem;
         private ToolStripMenuItem cadastroToolStripMenuItem;
         private ToolStripMenuItem tiposDeEntradasToolStripMenuItem;
-        private ToolStripMenuItem adicionarValorToolStripMenuItem;
         private Label lblValorTotal;
         private Panel panel1;
         private ToolStripMenuItem finaceiroToolStripMenuItem1;
         private ToolStripMenuItem cadastroToolStripMenuItem1;
         private ToolStripMenuItem alterarCadastroExistenteToolStripMenuItem;
+        private ToolStripMenuItem adicionarValorSaidaToolStripMenuItem;
+        private ToolStripMenuItem alterarValorToolStripMenuItem;
     }
 }

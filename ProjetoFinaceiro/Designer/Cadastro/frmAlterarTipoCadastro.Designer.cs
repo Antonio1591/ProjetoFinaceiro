@@ -47,7 +47,7 @@
             // txtDescriscao
             // 
             this.txtDescriscao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtDescriscao.Location = new System.Drawing.Point(162, 227);
+            this.txtDescriscao.Location = new System.Drawing.Point(162, 233);
             this.txtDescriscao.Multiline = true;
             this.txtDescriscao.Name = "txtDescriscao";
             this.txtDescriscao.Size = new System.Drawing.Size(149, 55);
@@ -57,7 +57,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(13, 240);
+            this.label3.Location = new System.Drawing.Point(13, 246);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 20);
             this.label3.TabIndex = 17;
@@ -66,7 +66,7 @@
             // btnLimpar
             // 
             this.btnLimpar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLimpar.Location = new System.Drawing.Point(181, 300);
+            this.btnLimpar.Location = new System.Drawing.Point(181, 306);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(134, 39);
             this.btnLimpar.TabIndex = 16;
@@ -77,7 +77,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnBuscar.Location = new System.Drawing.Point(8, 300);
+            this.btnBuscar.Location = new System.Drawing.Point(8, 306);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(134, 39);
             this.btnBuscar.TabIndex = 15;
@@ -158,7 +158,7 @@
             // 
             this.btnInserir.Enabled = false;
             this.btnInserir.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnInserir.Location = new System.Drawing.Point(8, 300);
+            this.btnInserir.Location = new System.Drawing.Point(8, 306);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(134, 39);
             this.btnInserir.TabIndex = 18;
@@ -195,7 +195,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(327, 351);
+            this.ClientSize = new System.Drawing.Size(327, 367);
             this.Controls.Add(this.cmbSituacao);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCodigo);

@@ -1,4 +1,5 @@
-﻿using ProjetoFinaceiro.Services;
+﻿using ProjetoFinaceiro.Modelo;
+using ProjetoFinaceiro.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace ProjetoFinaceiro.Designer.Cadastro
     {
         private readonly TiposService _tiposService;
 
+        private Tipos _tipos;
         public frmAlterarTipoCadastro(TiposService tiposService)
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace ProjetoFinaceiro.Designer.Cadastro
 
         private void frmAlterarTipoCadastro_Load(object sender, EventArgs e)
         {
-            cmbTipoOperacao.Enabled=false;
+            cmbTipoOperacao.Enabled = false;
             txtDescriscao.Enabled = false;
             cmbSituacao.Enabled = false;
         }
@@ -52,19 +54,21 @@ namespace ProjetoFinaceiro.Designer.Cadastro
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
+
             Modelo.Tipos tipo = _tiposService.obterTipo(string.IsNullOrWhiteSpace(txtCodigo.Text) ? 0 : int.Parse(txtCodigo.Text), txtNomeOperacao.Text);
-            if(tipo == null)
+            if (tipo == null)
             {
                 MessageBox.Show("Informação Invalida, codigo ou nome não encontrado");
                 return;
             }
+
+            _tipos = tipo;
             if (tipo.Id == 0) return;
 
             txtCodigo.Text = tipo.Id.ToString();
             txtNomeOperacao.Text = tipo.Nome;
             cmbTipoOperacao.Text = tipo.Tipo;
-            txtDescriscao.Text=tipo.Descricao.ToString();
+            txtDescriscao.Text = tipo.Descricao.ToString();
             cmbSituacao.Text = tipo.Situacao;
             lblPesquisar.Text = "Alterar Cadastro";
             btnInserir.Enabled = true;
@@ -79,20 +83,25 @@ namespace ProjetoFinaceiro.Designer.Cadastro
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-            Modelo.Tipos tipo = _tiposService.ObterPorId(int.Parse(txtCodigo.Text));
-            if (tipo == null)
-            {
-                MessageBox.Show("Informação Invalida, codigo ou nome não encontrado");
-                return;
-            }
-           
-            _tiposService.Commit(new Modelo.Tipos(Convert.ToInt32(txtCodigo.Text),txtNomeOperacao.Text, cmbTipoOperacao.Text, txtDescriscao.Text, cmbSituacao.Text));
 
-            //tipo.Nome = txtNomeOperacao.Text;
-            //tipo.Tipo = cmbTipoOperacao.Text;
-            //tipo.Descricao = txtDescriscao.Text;
-            //tipo.Situacao = cmbSituacao.Text;
-            MessageBox.Show("Tipo Atualizado","Atualizar Cadastro",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            if (_tipos.Id == 0)
+            {
+                _tipos = new Modelo.Tipos(Convert.ToInt32(txtCodigo.Text), txtNomeOperacao.Text, cmbTipoOperacao.Text, txtDescriscao.Text, cmbSituacao.Text);
+                _tiposService.Inserir(_tipos);
+
+            }
+            else
+            {
+                _tipos.Id = Convert.ToInt32(txtCodigo.Text);
+                _tipos.Nome = txtNomeOperacao.Text;
+                _tipos.Tipo = cmbTipoOperacao.Text;
+                _tipos.Descricao = txtDescriscao.Text;
+                _tipos.Situacao = cmbSituacao.Text;
+
+                _tiposService.Update(_tipos);
+            }
+            _tiposService.Commit();
+            MessageBox.Show("Tipo Atualizado", "Atualizar Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
     }

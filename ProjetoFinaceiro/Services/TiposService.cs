@@ -65,11 +65,21 @@ namespace ProjetoFinaceiro.Services
             return tipos;
 
         }
-
-        public async  void  Commit(Tipos tipo)
+        public async void Inserir(Tipos tipo)
         {
             _financeiroDbContext.Tipos.Add(tipo);
-             await _financeiroDbContext.Update(Nome,tipo);
+
+        }
+        public async void Update(Tipos tipo)
+        {
+            _financeiroDbContext.Tipos.Update(tipo);
+
+        }
+
+        public async  void  Commit()
+        {
+
+             await _financeiroDbContext.SaveChangesAsync();
 
         }
     }
