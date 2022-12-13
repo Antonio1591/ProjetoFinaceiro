@@ -1,12 +1,7 @@
-using Microsoft.EntityFrameworkCore;
+using apiProjetoFinaceiro.services;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using ProjetoFinaceiro.Data;
-using ProjetoFinaceiro.Designer;
-using ProjetoFinaceiro.Designer.Cadastro;
-using ProjetoFinaceiro.Designer.Movimentação;
-using ProjetoFinaceiro.Modelo;
-using ProjetoFinaceiro.Services;
+using ProjetoFinaceiro.Designer.Tela_de_Cadastro;
+using ProjetoFinaceiro.Designer.Tela_de_logim;
 
 namespace ProjetoFinaceiro
 {
@@ -26,34 +21,31 @@ namespace ProjetoFinaceiro
             ApplicationConfiguration.Initialize();
 
             var services = new ServiceCollection();
-            services.AddTransient<frmPrincipal>();
-            services.AddTransient<frmCadastroTiposEntradaESaida>();
-            services.AddTransient<MovimentoFinaceiro>();
-            services.AddTransient<MovimentoFinaceiroService>();
-            services.AddTransient<EntradaFinaceira>();
-            services.AddTransient<EntradaFinaceiraService>();
-            services.AddTransient<SaidaFinaceira>();
-            services.AddTransient<SaidaFinaceiraService>();
-            services.AddTransient<frmEntrada>();
-            services.AddTransient<TiposService>();
-            services.AddTransient<frmSaida>();
-            services.AddTransient<frmRelatorio>();
-            services.AddTransient<frmAlterarTipoCadastro>();
-            services.AddTransient<frmAlteracaoDeMovimentacao>();
-
-            var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
-
-            services.AddDbContext<FinanceiroDbContext>(opt =>
-            {
-                opt.UseMySql("Server=localhost;port=3306;User Id=root; database=projetofinaceiro;password=123456", serverVersion)
-                .LogTo(Console.WriteLine, LogLevel.Information);
-            });
+            //services.AddTransient<frmPrincipal>();
+            //services.AddTransient<frmCadastroTiposEntradaESaida>();
+            ////services.AddTransient<MovimentoFinaceiro>();
+            //services.AddTransient<MovimentoFinaceiroService>();
+            ////services.AddTransient<EntradaFinaceira>();
+            //services.AddTransient<EntradaFinaceiraService>();
+            ////services.AddTransient<SaidaFinaceira>();
+            //services.AddTransient<SaidaFinaceiraService>();
+            //services.AddTransient<frmEntrada>();
+            //services.AddTransient<TiposService>();
+            //services.AddTransient<frmSaida>();
+            //services.AddTransient<frmRelatorio>();
+            //services.AddTransient<frmAlterarTipoCadastro>();
+            //services.AddTransient<frmAlteracaoDeMovimentacao>();
+            services.AddTransient<frmLogim>();
+            services.AddTransient<frmRegistro>();
+            services.AddTransient<IUsuarioServices,UsuarioServices>();
 
 
             ServiceProvider = services.BuildServiceProvider();
 
-            var formPrincipal = ServiceProvider.GetService<frmPrincipal>();
+            var formPrincipal = ServiceProvider.GetService<frmLogim>();
+
             Application.Run(formPrincipal);
+          
         }
     }
 }
