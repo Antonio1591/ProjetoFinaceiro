@@ -1,16 +1,8 @@
-﻿using apiProjetoFinaceiro.Model.Domain;
-using apiProjetoFinaceiro.Model.Mapping;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using Newtonsoft.Json;
+using ProjetoFinaceiro.Modelo;
 using System.Net.Http.Headers;
 using System.Net.Mime;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetoFinaceiro.Services
 {
@@ -27,30 +19,40 @@ namespace ProjetoFinaceiro.Services
         public async Task<T> getAsync<T>(string url)
         {
             var response = await client.GetAsync(url);
-            var context = await response.Content.ReadAsStringAsync() ;
+            var context = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<T>(context);
 
         }
-        public async Task<TViweModel> Create<TViweModel, TInputModel>(string url, TInputModel imput)
+        public async Task<RespostaApi<TViweModel>> Create<TViweModel, TInputModel>(string url, TInputModel imput)
         {
 
             client.DefaultRequestHeaders.Accept.Clear();
-            
+
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var jsonContent = JsonConvert.SerializeObject(imput);
             var contentString = new StringContent(jsonContent, Encoding.UTF8, "application/json");
             contentString.Headers.ContentType = new MediaTypeHeaderValue(MediaTypeNames.Application.Json);
-            HttpResponseMessage responsePost = await client.PostAsync(url, contentString) ;
-            var resultado = await responsePost.Content.ReadAsStringAsync() ;
+            HttpResponseMessage responsePost = await client.PostAsync(url, contentString);
+            var resultado = await responsePost.Content.ReadAsStringAsync();
             if (responsePost.IsSuccessStatusCode)
             {
-                return JsonConvert.DeserializeObject<TViweModel>(resultado);
+                return new RespostaApi<TViweModel>
+                {
+                    Dados = JsonConvert.DeserializeObject<TViweModel>(resultado),
+
+                };
             }
-            return default;
-            
-           
+
+            return new RespostaApi<TViweModel>
+            {
+                MensagemErro = JsonConvert.DeserializeObject<string>(resultado),
+               
+                Erro=true,
+            }; 
+
+
         }
 
-               
+
     }
 }

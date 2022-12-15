@@ -2,23 +2,24 @@
 using apiProjetoFinaceiro.Model.Imput;
 using apiProjetoFinaceiro.Model.Mapping;
 using apiProjetoFinaceiro.Model.View;
+using ProjetoFinaceiro.Modelo;
 using ProjetoFinaceiro.Modelo.Domain;
 using ProjetoFinaceiro.Services;
 
 namespace apiProjetoFinaceiro.services
 {
     public class UsuarioServices : IUsuarioServices
-    {
+    { 
 
         ApiClient _apiClient = new ApiClient(new HttpClient());
-        public async Task<UsuarioViewModel> CadastrarUsuario(UsuarioImputModel input)
+        public async Task<RespostaApi<UsuarioViewModel>> CadastrarUsuario(UsuarioImputModel input)
         {
-            await _apiClient.Create<UsuarioViewModel,UsuarioImputModel>("Usuario/Resultado", input);
-            var pessoa = new Usuario(input.Nome, input.Senha, input.Email, input.Telefone, input.Cidade, input.Bairro, input.CPF, input.DataNascimento, input.Situacao) ;
-            List<Usuario> Pessoa = new List<Usuario>();
-            Pessoa.Add(pessoa);
-            MessageBox.Show(pessoa.Cidade.Nome);
-            return pessoa.ParaViewModel();
+            var novoUsuario = new Usuario(input.Nome, input.Senha, input.Email, input.Telefone, input.Cidade, input.Bairro, input.CPF, input.DataNascimento, input.Situacao);
+            if (!novoUsuario.EhValido)
+                return default;
+
+          var respostaApi = await _apiClient.Create<UsuarioViewModel, UsuarioImputModel>("Usuario/Resultado", input);
+            return respostaApi;
         }
 
         public async Task Delete(int id)
@@ -35,13 +36,14 @@ namespace apiProjetoFinaceiro.services
         {
            
            var resultado= await _apiClient.Create<UsuarioViewModel,Login>("Usuario/Login", login);
-            if (resultado == null)
+            if (resultado.Erro )
             {
-                MessageBox.Show("Usuario não encontrado na base de daods");
+                MessageBox.Show(resultado.MensagemErro);
                 return null;
             };
-            MessageBox.Show($"Usuario {resultado.Nome} Logado! Onde o usuario e da cidade "+resultado.Cidade);
-            return resultado;
+            //MessageBox.Show($"Usuario {resultado.Nome} Logado! Onde o usuario e da cidade "+resultado.Cidade);
+            MessageBox.Show("");
+            return resultado.Dados;
         }
 
 

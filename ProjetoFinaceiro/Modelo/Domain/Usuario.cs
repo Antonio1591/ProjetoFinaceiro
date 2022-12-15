@@ -1,10 +1,10 @@
-﻿ using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System;
 using System.ComponentModel;
 
 namespace apiProjetoFinaceiro.Model.Domain
 {
-    public class Usuario
+    public class Usuario : Entidade
     {
 
         protected Usuario()
@@ -13,6 +13,22 @@ namespace apiProjetoFinaceiro.Model.Domain
         }
         public Usuario(string nome, string senha, string email, string telefone, Cidade cidade, Bairro bairro, string cPF, DateTime dataNascimento, string situacao)
         {
+            if (nome.Length >= 4 && string.IsNullOrEmpty(nome))
+                AddErro("O nome do usuario deve ser preenchido");
+            if (senha.Length >= 4 && string.IsNullOrEmpty(senha))
+                AddErro("A semha deve conter mais de 3 digitos");
+            if (email.Length >= 10 && string.IsNullOrEmpty(email))
+                AddErro("O Email deve conter mais de 9 caracteres");
+            if (telefone.Length >= 8 && string.IsNullOrEmpty(telefone))
+                AddErro("Numero invalido, favor digite um numero  valido");
+            if (cPF.Length >= 9 && string.IsNullOrEmpty(cPF))
+                AddErro("Digite um CPF valido");
+            if (dataNascimento.Year > 1900 && dataNascimento.Year < 2022)
+                AddErro("Data de nascimento Invalida");
+            if (Situacao.Length >= 4 && string.IsNullOrEmpty(cPF))
+                AddErro("Digite a situação do Usuario");
+            if (!EhValido)
+                return;
             Nome = nome;
             Senha = senha;
             Email = email;
@@ -46,5 +62,17 @@ namespace apiProjetoFinaceiro.Model.Domain
         [Required(ErrorMessage = "Situação obrigatoria")]
         public string Situacao { get; set; }
     }
+
+    public abstract class Entidade
+    {
+        public List<string> Erros { get; set; } = new();
+
+        public void AddErro(string erro)
+        {
+            Erros.Add(erro);
+        }
+        public bool EhValido => !Erros.Any();
+    }
+
 }
 
