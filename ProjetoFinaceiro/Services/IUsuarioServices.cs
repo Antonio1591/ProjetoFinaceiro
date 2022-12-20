@@ -11,7 +11,7 @@ namespace apiProjetoFinaceiro.services
     {
         Task<IEnumerable<UsuarioViewModel>> ListaUsuarios();
 
-        Task <RespostaApi<UsuarioViewModel>> CadastrarUsuario(UsuarioImputModel input);
+        Task <UsuarioViewModel>CadastrarUsuario(UsuarioImputModel input);
 
         Task<UsuarioViewModel> Logim(Login login);
         Task <IEnumerable<CidadeViewModel>> BuscarCidades();

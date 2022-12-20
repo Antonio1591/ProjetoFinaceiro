@@ -45,14 +45,38 @@ namespace ProjetoFinaceiro.Services
 
             return new RespostaApi<TViweModel>
             {
-                MensagemErro = JsonConvert.DeserializeObject<string>(resultado),
-               
-                Erro=true,
-            }; 
+                MensagemErro = JsonConvert.DeserializeObject<IEnumerable<string>>(resultado),
 
+                Erro = true,
+            };
 
         }
+        public async Task<RespostaApi<TViweModel>> Login<TViweModel, TInputModel>(string url, TInputModel imput)
+        {
 
+            client.DefaultRequestHeaders.Accept.Clear();
+
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var jsonContent = JsonConvert.SerializeObject(imput);
+            var contentString = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            contentString.Headers.ContentType = new MediaTypeHeaderValue(MediaTypeNames.Application.Json);
+            HttpResponseMessage responsePost = await client.PostAsync(url, contentString);
+            var resultado = await responsePost.Content.ReadAsStringAsync();
+            if (responsePost.IsSuccessStatusCode)
+            {
+                return new RespostaApi<TViweModel>
+                {
+                    Dados = JsonConvert.DeserializeObject<TViweModel>(resultado),
+
+                };
+            }
+            return new RespostaApi<TViweModel>
+            {
+                MensagemErro = JsonConvert.DeserializeObject<IEnumerable<string>>(resultado),
+
+                Erro = true,
+            };
+    }
 
     }
 }

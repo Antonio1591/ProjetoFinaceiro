@@ -41,10 +41,11 @@ namespace ProjetoFinaceiro.Designer.Tela_de_Cadastro
                 return;
             var bairroInput = new Bairro(bairro.Id, bairro.Nome, bairro.Situacao);
 
-            var usuarioCadastro = new UsuarioImputModel(txtNome.Text, mskSenha.Text, txtEmail.Text, txtTelefone.Text, cidadeInput, bairroInput, mskCPF.Text, dtNascimento.Value, "ativo");
-            _IUsuariosService.CadastrarUsuario(usuarioCadastro);
+            var usuarioCadastro = new UsuarioImputModel(txtNome.Text, mskSenha.Text, txtEmail.Text, txtTelefone.Text, cidadeInput, bairroInput, mskCPF.Text, dtNascimento.Value, "ATIVO");
+            var resultado=_IUsuariosService.CadastrarUsuario(usuarioCadastro);
+            
 
-            MessageBox.Show("Usuario Cadastrado");
+           
         }
 
         private async void frmRegistro_Load(object sender, EventArgs e)
