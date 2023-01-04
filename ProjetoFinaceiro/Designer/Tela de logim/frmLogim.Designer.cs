@@ -36,6 +36,7 @@
             this.btnLogar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEsqueceuSenha = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -101,7 +102,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(292, 10);
+            this.button2.Location = new System.Drawing.Point(292, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(107, 32);
             this.button2.TabIndex = 6;
@@ -112,18 +113,30 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.panel1.Controls.Add(this.btnEsqueceuSenha);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Location = new System.Drawing.Point(1, 294);
+            this.panel1.Location = new System.Drawing.Point(1, 272);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(402, 49);
+            this.panel1.Size = new System.Drawing.Size(402, 71);
             this.panel1.TabIndex = 7;
+            // 
+            // btnEsqueceuSenha
+            // 
+            this.btnEsqueceuSenha.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEsqueceuSenha.Location = new System.Drawing.Point(292, 41);
+            this.btnEsqueceuSenha.Name = "btnEsqueceuSenha";
+            this.btnEsqueceuSenha.Size = new System.Drawing.Size(107, 30);
+            this.btnEsqueceuSenha.TabIndex = 7;
+            this.btnEsqueceuSenha.Text = "Esqueceu senha?";
+            this.btnEsqueceuSenha.UseVisualStyleBackColor = true;
+            this.btnEsqueceuSenha.Click += new System.EventHandler(this.btnEsqueceuSenha_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(54, 21);
+            this.label4.Location = new System.Drawing.Point(50, 14);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(199, 21);
             this.label4.TabIndex = 0;
@@ -142,7 +155,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "frmLogim";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogim";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -162,5 +178,6 @@
         private Button button2;
         private Panel panel1;
         private Label label4;
+        private Button btnEsqueceuSenha;
     }
 }

@@ -2,6 +2,7 @@ using apiProjetoFinaceiro.services;
 using Microsoft.Extensions.DependencyInjection;
 using ProjetoFinaceiro.Designer.Tela_de_Cadastro;
 using ProjetoFinaceiro.Designer.Tela_de_logim;
+using ProjetoFinaceiro.Designer.Usuario;
 
 namespace ProjetoFinaceiro
 {
@@ -37,6 +38,7 @@ namespace ProjetoFinaceiro
             //services.AddTransient<frmAlteracaoDeMovimentacao>();
             services.AddTransient<frmLogim>();
             services.AddTransient<frmRegistro>();
+            services.AddTransient<frmAlterarSenha>();
             services.AddTransient<IUsuarioServices,UsuarioServices>();
 
 

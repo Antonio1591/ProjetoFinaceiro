@@ -23,7 +23,7 @@ namespace apiProjetoFinaceiro.Model.Domain
                 AddErro("Numero invalido, favor digite um numero  valido");
             if (cPF.Length <= 9 && string.IsNullOrEmpty(cPF))
                 AddErro("Digite um CPF valido");
-            if (dataNascimento.Year > 1900 && dataNascimento.Year < 2022)
+            if (dataNascimento.Year < 1900 && dataNascimento.Year > DateTime.Now.Year)
                 AddErro("Data de nascimento Invalida");
             if (situacao.Length <= 4 || string.IsNullOrEmpty(situacao))
                 AddErro("Digite a situação do Usuario");

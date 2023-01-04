@@ -14,6 +14,8 @@ namespace apiProjetoFinaceiro.Model.Mapping
                 Cidade = usuario.Cidade.Nome,
                 CidadeId = usuario.Cidade.Id,
                 CPF = usuario.CPF,
+                Email = usuario.Email,
+                Telefone=usuario.Telefone,
                 Bairro = usuario.Bairro.Nome,
                 BairroId= usuario.Bairro.Id,
                 DataNascimento = usuario.DataNascimento,

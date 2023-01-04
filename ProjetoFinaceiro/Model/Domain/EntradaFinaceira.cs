@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace ProjetoFinaceiro.Modelo.Domain
+namespace ProjetoFinaceiro.Model.Domain
 {
     public class EntradaFinaceira
     {

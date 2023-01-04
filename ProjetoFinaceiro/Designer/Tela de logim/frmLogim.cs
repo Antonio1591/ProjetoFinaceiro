@@ -4,6 +4,7 @@ using apiProjetoFinaceiro.services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualBasic;
 using ProjetoFinaceiro.Designer.Tela_de_Cadastro;
+using ProjetoFinaceiro.Designer.Usuario;
 using ProjetoFinaceiro.Modelo;
 using ProjetoFinaceiro.Modelo.Domain;
 using ProjetoFinaceiro.Services;
@@ -47,6 +48,12 @@ namespace ProjetoFinaceiro.Designer.Tela_de_logim
         {
 
             var form = _serviceProvider.GetService<frmRegistro>();
+            form.Show();
+        }
+
+        private void btnEsqueceuSenha_Click(object sender, EventArgs e)
+        {
+            var form = _serviceProvider.GetService<frmAlterarSenha>();
             form.Show();
         }
     }

@@ -1,10 +1,10 @@
 ﻿using apiProjetoFinaceiro.Model.Domain;
 
-namespace ProjetoFinaceiro.Modelo
+namespace ProjetoFinaceiro.Model
 {
-    public class RespostaApi<T>
+    public class RespostaApi<TViwerModel>
     {
-        public T Dados { get; set; }
+        public TViwerModel Dados { get; set; }
         public bool Erro { get; set; }
         public IEnumerable<string> MensagemErro { get; set; }
     }
