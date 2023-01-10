@@ -34,7 +34,6 @@ namespace apiProjetoFinaceiro.services
                 }
                 return null;
             };
-            MessageBox.Show("Usuario Cadastrado" + resultado.Dados.Nome);
             return resultado.Dados;   
         }
 

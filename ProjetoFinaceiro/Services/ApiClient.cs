@@ -23,10 +23,7 @@ namespace ProjetoFinaceiro.Services
             return JsonConvert.DeserializeObject<T>(context);
 
         }
-        public async Task<RespostaApi<TViweModel>> Create<TViweModel, TInputModel>(string url, 
-            
-            
-            TInputModel imput)
+        public async Task<RespostaApi<TViweModel>> Create<TViweModel, TInputModel>(string url,TInputModel imput)
         {
 
             client.DefaultRequestHeaders.Accept.Clear();

@@ -1,6 +1,8 @@
 ﻿using apiProjetoFinaceiro.Model.Domain;
 using apiProjetoFinaceiro.Model.Imput;
+using apiProjetoFinaceiro.Model.View;
 using apiProjetoFinaceiro.services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualBasic;
 using ProjetoFinaceiro.Designer.Tela_de_Cadastro;
@@ -30,18 +32,19 @@ namespace ProjetoFinaceiro.Designer.Tela_de_logim
             _serviceProvider = serviceProvider;
             _IUsuariosService = frmLogim;
             InitializeComponent();
-          
+
         }
 
 
-        private void btnLogar_Click(object sender, EventArgs e)
+        private async void btnLogar_ClickAsync(object sender, EventArgs e)
         {
-           
-            Login _login= new Login(txtEmail.Text,mskSenha.Text);
-            
-            _IUsuariosService.Logim(_login);
 
+            Login _login = new Login(txtEmail.Text, mskSenha.Text);
 
+            var resultado = await _IUsuariosService.Logim(_login);
+
+            if (resultado != null)
+                this.DialogResult = DialogResult.OK;
         }
 
         private void button2_Click(object sender, EventArgs e)

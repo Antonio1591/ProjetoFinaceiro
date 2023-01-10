@@ -1,5 +1,6 @@
 using apiProjetoFinaceiro.services;
 using Microsoft.Extensions.DependencyInjection;
+using ProjetoFinaceiro.Designer.Formulario_Principal;
 using ProjetoFinaceiro.Designer.Tela_de_Cadastro;
 using ProjetoFinaceiro.Designer.Tela_de_logim;
 using ProjetoFinaceiro.Designer.Usuario;
@@ -22,7 +23,7 @@ namespace ProjetoFinaceiro
             ApplicationConfiguration.Initialize();
 
             var services = new ServiceCollection();
-            //services.AddTransient<frmPrincipal>();
+            services.AddTransient<frmPrincipal>();
             //services.AddTransient<frmCadastroTiposEntradaESaida>();
             ////services.AddTransient<MovimentoFinaceiro>();
             //services.AddTransient<MovimentoFinaceiroService>();
@@ -39,15 +40,23 @@ namespace ProjetoFinaceiro
             services.AddTransient<frmLogim>();
             services.AddTransient<frmRegistro>();
             services.AddTransient<frmAlterarSenha>();
-            services.AddTransient<IUsuarioServices,UsuarioServices>();
+            services.AddTransient<IUsuarioServices, UsuarioServices>();
 
 
             ServiceProvider = services.BuildServiceProvider();
+            var frmLogin = ServiceProvider.GetService<frmLogim>();
+            if (frmLogin.ShowDialog() == DialogResult.OK)
+            {
+                var formPrincipal = ServiceProvider.GetService<frmPrincipal>();
+                Application.Run(formPrincipal);
+            }
+            else
+            {
+                MessageBox.Show("Tente Novamente");
+                return;
+            }
 
-            var formPrincipal = ServiceProvider.GetService<frmLogim>();
 
-            Application.Run(formPrincipal);
-          
         }
     }
 }
