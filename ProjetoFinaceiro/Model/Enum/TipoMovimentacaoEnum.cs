@@ -2,7 +2,7 @@
 {
     public enum TipoMovimentacaoEnum
     {
-        E,S
+        Entrada,Saida
             //Quando o tipo da movimentaçao for Entrada utilizar E caso for saida utilizar S
     }
 }

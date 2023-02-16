@@ -1,4 +1,5 @@
 ﻿using apiProjetoFinaceiro.Model.Domain;
+using apiProjetoFinaceiro.Model.Domain.UsuarioIdentityRepositorio;
 using Microsoft.Extensions.DependencyInjection;
 using ProjetoFinaceiro.Designer.Movimentação;
 using ProjetoFinaceiro.Services;
@@ -8,14 +9,13 @@ namespace ProjetoFinaceiro.Designer
     public partial class frmPrincipal : Form
     {
         private readonly IServiceProvider _serviceProvider;
-        private readonly MovimentacaoFinanceiraServices _MovimentoFinaceiroService;
+        private readonly IMovimentacaoFinanceiraServices _IMovimentoFinaceiroService;
 
-        public frmPrincipal(IServiceProvider serviceProvider, MovimentacaoFinanceiraServices _movimentoFinaceiroService)
+        public frmPrincipal(IServiceProvider serviceProvider, IMovimentacaoFinanceiraServices _ImovimentoFinaceiroService)
         {
             _serviceProvider = serviceProvider;
-            _MovimentoFinaceiroService = _movimentoFinaceiroService;
+            _IMovimentoFinaceiroService = _ImovimentoFinaceiroService;
             InitializeComponent();
-
         }
 
         private void adicionarEntradaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -26,28 +26,29 @@ namespace ProjetoFinaceiro.Designer
 
         private void cadastroToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //var form1 = _serviceProvider.GetService<frmCadastroTiposEntradaESaida>();
-            //form1.Show();
+            var form1 = _serviceProvider.GetService<frmCadastroTiposEntradaESaida>();
+            form1.Show();
 
         }
-        private void frmPrincipal_Load(object sender, EventArgs e)
+        private async void frmPrincipal_LoadAsync(object sender, EventArgs e)
         {
-            //var valorEntrada = _MovimentoFinaceiroService.ValorUltimoMesEntrada();
-            //var valorSaida = _MovimentoFinaceiroService.ValorUltimoMesSaida();
-            //var valorTotal = _MovimentoFinaceiroService.ValorUltimoMesTotal();
+
+            var valorEntrada = await _IMovimentoFinaceiroService.RetornarValorUltimoMes(Model.Enum.TipoMovimentacaoEnum.Entrada);
+            var valorSaida = await _IMovimentoFinaceiroService.RetornarValorUltimoMes(Model.Enum.TipoMovimentacaoEnum.Saida);
+            var valorTotal = (valorEntrada - valorSaida);
 
             txtValorEntrada.Text = valorEntrada.ToString("N2");
             txtValorSaida.Text = valorSaida.ToString("N2");
             txtValorTotal.Text = valorTotal.ToString("N2");
-            lblValorTotal.Text =   valorTotal.ToString("N2");
+            //lblValorTotal.Text =   valorTotal.ToString("N2");
 
             if (valorTotal > 0)
-                lblValorTotal.ForeColor = Color.LightGreen;
+             txtValorTotal.ForeColor = Color.LightGreen;
             else
-                lblValorTotal.ForeColor = Color.FromArgb(255, 91, 96);
-            //txtValorTotal.ForeColor = Color.FromArgb(255, 91, 96);
+            txtValorTotal.ForeColor = Color.FromArgb(255, 91, 96);
+                //lblValorTotal.ForeColor = Color.FromArgb(255, 91, 96);
 
-            //txtValorEntrada.Text = dtfinal.ToString();
+                //txtValorEntrada.Text = dtfinal.ToString();
         }
 
         private void finaceiroToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -73,5 +74,7 @@ namespace ProjetoFinaceiro.Designer
             var form = _serviceProvider.GetService<frmAlteracaoDeMovimentacao>();
             form.Show();
         }
+
+
     }
 }

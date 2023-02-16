@@ -15,6 +15,7 @@ namespace ProjetoFinaceiro.Model.Mapping
 
             return new TipoMovimentacaoViewModel
             {
+                Id = tipoMovimentacao.id,
                 TipoDescriscao = tipoMovimentacao.TipoDescriscao,
                 TipoOperacao = tipoMovimentacao.TipoOperacao.ToString(),
                 Situacao = tipoMovimentacao.SituacaoEnum.ToString(),

@@ -16,12 +16,13 @@ namespace ProjetoFinaceiro.Modelo.Domain
     {
         public TipoMovimentacao(TipoMovimentacaoEnum tipoOperacao, string tipoDescriscao, SituacaoEnum situacaoEnum)
         {
-            if (string.IsNullOrEmpty(TipoOperacao.ToString()))
+            if (string.IsNullOrEmpty(tipoOperacao.ToString()))
                 AddErro("Informe o tipo da movimentação (E para entrada e S para saida");
-            if (string.IsNullOrEmpty(TipoDescriscao))
+            if (string.IsNullOrEmpty(tipoDescriscao))
                 AddErro("Informe o nome da movimentação");
             if (!EhValido)
-                TipoOperacao = tipoOperacao;
+                return;
+             TipoOperacao = tipoOperacao;
             TipoDescriscao = tipoDescriscao;
             SituacaoEnum = situacaoEnum;
         }

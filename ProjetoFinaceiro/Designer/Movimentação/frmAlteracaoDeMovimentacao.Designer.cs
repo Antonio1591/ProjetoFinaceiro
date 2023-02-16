@@ -166,7 +166,7 @@
             this.btnBuscar.TabIndex = 34;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+
             // 
             // btbLimpar
             // 
@@ -177,7 +177,7 @@
             this.btbLimpar.TabIndex = 35;
             this.btbLimpar.Text = "Limpar";
             this.btbLimpar.UseVisualStyleBackColor = true;
-            this.btbLimpar.Click += new System.EventHandler(this.btbLimpar_Click);
+
             // 
             // btnInserir
             // 
@@ -188,7 +188,6 @@
             this.btnInserir.TabIndex = 36;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = true;
-            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // txtValorSaida
             // 
@@ -242,7 +241,6 @@
             this.Name = "frmAlteracaoDeMovimentacao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAlteracaoDeMovimentacao";
-            this.Load += new System.EventHandler(this.frmAlteracaoDeMovimentacao_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

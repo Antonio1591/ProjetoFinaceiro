@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.pnlEntradaFinaceira = new System.Windows.Forms.Panel();
-            this.substituicaoTxtValor1 = new ProjetoFinaceiro.Designer.substituicaoTxtValor();
             this.cmbEntradas = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
@@ -42,7 +41,6 @@
             // pnlEntradaFinaceira
             // 
             this.pnlEntradaFinaceira.BackColor = System.Drawing.Color.BurlyWood;
-            this.pnlEntradaFinaceira.Controls.Add(this.substituicaoTxtValor1);
             this.pnlEntradaFinaceira.Controls.Add(this.cmbEntradas);
             this.pnlEntradaFinaceira.Controls.Add(this.btnCancelar);
             this.pnlEntradaFinaceira.Controls.Add(this.btnInserir);
@@ -53,16 +51,7 @@
             this.pnlEntradaFinaceira.Name = "pnlEntradaFinaceira";
             this.pnlEntradaFinaceira.Size = new System.Drawing.Size(345, 281);
             this.pnlEntradaFinaceira.TabIndex = 0;
-            // 
-            // substituicaoTxtValor1
-            // 
-            this.substituicaoTxtValor1.BackColor = System.Drawing.Color.BurlyWood;
-            this.substituicaoTxtValor1.Location = new System.Drawing.Point(168, 157);
-            this.substituicaoTxtValor1.Name = "substituicaoTxtValor1";
-            this.substituicaoTxtValor1.Size = new System.Drawing.Size(160, 23);
-            this.substituicaoTxtValor1.TabIndex = 8;
-            this.substituicaoTxtValor1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
+            //
             // cmbEntradas
             // 
             this.cmbEntradas.BackColor = System.Drawing.Color.BurlyWood;
@@ -154,6 +143,5 @@
         private Button btnCancelar;
         private Button btnInserir;
         private ComboBox cmbEntradas;
-        private substituicaoTxtValor substituicaoTxtValor1;
     }
 }

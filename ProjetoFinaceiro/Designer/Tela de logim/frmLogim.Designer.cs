@@ -77,6 +77,7 @@
             this.mskSenha.Name = "mskSenha";
             this.mskSenha.Size = new System.Drawing.Size(206, 23);
             this.mskSenha.TabIndex = 3;
+            this.mskSenha.Text = "123@Aa1";
             // 
             // txtEmail
             // 
@@ -86,7 +87,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(206, 15);
             this.txtEmail.TabIndex = 4;
-            this.txtEmail.Text = "teste@gmail.com";
+            this.txtEmail.Text = "Antonioocarlos2002@gmail.com";
             // 
             // btnLogar
             // 

@@ -1,4 +1,5 @@
 ﻿using apiProjetoFinaceiro.Model.Domain;
+using apiProjetoFinaceiro.Model.Domain.UsuarioIdentityRepositorio;
 using apiProjetoFinaceiro.Model.Imput;
 using apiProjetoFinaceiro.Model.View;
 using ProjetoFinaceiro.Model;
@@ -10,13 +11,8 @@ namespace apiProjetoFinaceiro.services
 {
     public interface IUsuarioServices
     {
-        Task<IEnumerable<UsuarioViewModel>> ListaUsuarios();
-
-        Task<UsuarioViewModel> CadastrarUsuario(UsuarioImputModel input);
-
-        Task<UsuarioViewModel> Logim(Login login);
-        Task <IEnumerable<CidadeViewModel>> BuscarCidades();
-        Task <IEnumerable<BairroViewModel>> BuscarBairros();
-        Task<UsuarioViewModel> AlterarSenha(UsuarioImputModel input);
+     
+        Task<bool> CadastrarUsuarioIdentity(UsuarioCadastroRequest input);
+        Task<bool> LogarUsuarioIdentity(Login login);
     }
 }

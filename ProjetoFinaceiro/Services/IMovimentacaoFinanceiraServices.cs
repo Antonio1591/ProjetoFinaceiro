@@ -11,9 +11,10 @@ namespace ProjetoFinaceiro.Services
 {
     public interface IMovimentacaoFinanceiraServices
     {
-        Task <IEnumerable<MovimentacaoFinanceiraViewModel>> buscarMovimentacoes();
-        Task<MovimentacaoFinanceiraViewModel> CadastrarMovimentacoes(MovimentacaoFinaceiraInputModel input);
-        Task<MovimentacaoFinanceiraViewModel> AtualizarMovimentacao(MovimentacaoFinaceiraInputModel input);
+        Task <IEnumerable<MovimentacaoFinanceiraViewModel>> buscarMovimentacoes( );
+        Task<MovimentacaoFinanceiraViewModel> CadastrarMovimentacoes(MovimentacaoFinanceiraInputModel input);
+        Task<MovimentacaoFinanceiraViewModel> AtualizarMovimentacao(MovimentacaoFinanceiraInputModel input);
         Task<decimal> RetornarValorUltimoMes(TipoMovimentacaoEnum tipoMovimentacaoEnum);
+
     }
 }

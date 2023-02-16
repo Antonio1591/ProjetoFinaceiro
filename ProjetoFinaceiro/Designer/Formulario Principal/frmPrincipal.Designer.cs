@@ -36,11 +36,10 @@
             this.entradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarEntradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarValorSaidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alterarValorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.finaceiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.finaceiroToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlValoresMensal = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblValorTotal = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtValorSaida = new System.Windows.Forms.TextBox();
             this.txtValorEntrada = new System.Windows.Forms.TextBox();
@@ -48,10 +47,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtValorTotal = new System.Windows.Forms.TextBox();
-            this.alterarValorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlValoresMensal.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -124,6 +121,13 @@
             this.adicionarValorSaidaToolStripMenuItem.Text = "Adicionar Valor Saida";
             this.adicionarValorSaidaToolStripMenuItem.Click += new System.EventHandler(this.adicionarValorSaidaToolStripMenuItem_Click);
             // 
+            // alterarValorToolStripMenuItem
+            // 
+            this.alterarValorToolStripMenuItem.Name = "alterarValorToolStripMenuItem";
+            this.alterarValorToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.alterarValorToolStripMenuItem.Text = "Alterar Valor ";
+            this.alterarValorToolStripMenuItem.Click += new System.EventHandler(this.alterarValorToolStripMenuItem_Click);
+            // 
             // finaceiroToolStripMenuItem
             // 
             this.finaceiroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -135,15 +139,15 @@
             // finaceiroToolStripMenuItem1
             // 
             this.finaceiroToolStripMenuItem1.Name = "finaceiroToolStripMenuItem1";
-            this.finaceiroToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.finaceiroToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
             this.finaceiroToolStripMenuItem1.Text = "Finaceiro";
             this.finaceiroToolStripMenuItem1.Click += new System.EventHandler(this.finaceiroToolStripMenuItem1_Click);
             // 
             // pnlValoresMensal
             // 
             this.pnlValoresMensal.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnlValoresMensal.Controls.Add(this.panel1);
             this.pnlValoresMensal.Controls.Add(this.label4);
+            this.pnlValoresMensal.Controls.Add(this.txtValorTotal);
             this.pnlValoresMensal.Controls.Add(this.txtValorSaida);
             this.pnlValoresMensal.Controls.Add(this.txtValorEntrada);
             this.pnlValoresMensal.Controls.Add(this.label3);
@@ -153,24 +157,6 @@
             this.pnlValoresMensal.Name = "pnlValoresMensal";
             this.pnlValoresMensal.Size = new System.Drawing.Size(248, 156);
             this.pnlValoresMensal.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Controls.Add(this.lblValorTotal);
-            this.panel1.Location = new System.Drawing.Point(106, 127);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(94, 22);
-            this.panel1.TabIndex = 5;
-            // 
-            // lblValorTotal
-            // 
-            this.lblValorTotal.AutoSize = true;
-            this.lblValorTotal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblValorTotal.Location = new System.Drawing.Point(39, 2);
-            this.lblValorTotal.Name = "lblValorTotal";
-            this.lblValorTotal.Size = new System.Drawing.Size(0, 15);
-            this.lblValorTotal.TabIndex = 6;
             // 
             // label4
             // 
@@ -235,19 +221,12 @@
             this.txtValorTotal.Enabled = false;
             this.txtValorTotal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtValorTotal.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtValorTotal.Location = new System.Drawing.Point(504, 372);
+            this.txtValorTotal.Location = new System.Drawing.Point(106, 125);
             this.txtValorTotal.Name = "txtValorTotal";
             this.txtValorTotal.ReadOnly = true;
             this.txtValorTotal.Size = new System.Drawing.Size(94, 22);
             this.txtValorTotal.TabIndex = 4;
             this.txtValorTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // alterarValorToolStripMenuItem
-            // 
-            this.alterarValorToolStripMenuItem.Name = "alterarValorToolStripMenuItem";
-            this.alterarValorToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.alterarValorToolStripMenuItem.Text = "Alterar Valor ";
-            this.alterarValorToolStripMenuItem.Click += new System.EventHandler(this.alterarValorToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -255,7 +234,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProjetoFinaceiro.Properties.Resources.Finaceiro_ico;
             this.ClientSize = new System.Drawing.Size(663, 425);
-            this.Controls.Add(this.txtValorTotal);
             this.Controls.Add(this.pnlValoresMensal);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -263,13 +241,11 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.frmPrincipal_Load);
+            this.Load += new System.EventHandler(this.frmPrincipal_LoadAsync);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.pnlValoresMensal.ResumeLayout(false);
             this.pnlValoresMensal.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,8 +266,6 @@
         private ToolStripMenuItem adicionarEntradaToolStripMenuItem;
         private ToolStripMenuItem cadastroToolStripMenuItem;
         private ToolStripMenuItem tiposDeEntradasToolStripMenuItem;
-        private Label lblValorTotal;
-        private Panel panel1;
         private ToolStripMenuItem finaceiroToolStripMenuItem1;
         private ToolStripMenuItem cadastroToolStripMenuItem1;
         private ToolStripMenuItem alterarCadastroExistenteToolStripMenuItem;

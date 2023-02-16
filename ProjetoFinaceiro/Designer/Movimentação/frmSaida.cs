@@ -10,55 +10,62 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using Dapper;
+using apiProjetoFinaceiro.Model.Imput;
+using ProjetoFinaceiro.Modelo.Domain;
+using ProjetoFinaceiro.Model.View;
+using ProjetoFinaceiro.Model.Enum;
 
 namespace ProjetoFinaceiro.Designer
 {
     public partial class frmSaida : Form
     {
-        private readonly SaidaFinaceiraService _SaidaFinaceiraService;
-        private readonly TiposService _tiposService;
-        private readonly MovimentoFinaceiroService _movimentoFinaceiroService;
 
-        public frmSaida(SaidaFinaceiraService saidaFinaceiraService, TiposService tiposService, MovimentoFinaceiroService movimentoFinaceiroService)
+        private readonly ITipoMovimentacaoServices _tiposService;
+        private readonly IMovimentacaoFinanceiraServices _movimentoFinaceiroService;
+        private IEnumerable<TipoMovimentacaoViewModel> _tipoViweModel;
+        public frmSaida(ITipoMovimentacaoServices tiposService, IMovimentacaoFinanceiraServices movimentoFinaceiroService)
         {
-            _SaidaFinaceiraService = saidaFinaceiraService;
             _tiposService = tiposService;
             _movimentoFinaceiroService = movimentoFinaceiroService;
             InitializeComponent();
-            
         }
 
-        private void btnInserir_Click(object sender, EventArgs e)
+        //public MovimentacaoFinanceiraServices MovimentoFinaceiroService => _movimentoFinaceiroService;
+
+    
+
+        private async void frmSaida_Load(object sender, EventArgs e)
         {
+            _tipoViweModel = await _tiposService.BuscarTipos();
+
+            foreach (var tipos in _tipoViweModel)
+            {
+                cmbSaidas.Items.Add(tipos.TipoDescriscao);
+
+            }
+        }
+
+        private async void btnInserir_Click(object sender, EventArgs e)
+        {
+
             if (cmbSaidas.Text == "" || txtValor.Text == "")
             {
                 MessageBox.Show("Não pode ter campos vazios! ", "Campos vazios! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            double valor = Convert.ToDouble(txtValor.Text.Replace("R$ ", "")); ;
+            //double valor = Convert.ToDouble(txtValor.Text.Replace("R$ ", ""));
 
-            DateTime data = DateTime.Now;
-            MessageBox.Show(valor.ToString(), data.ToString());
+            var tipoMovimentacao = _tipoViweModel.FirstOrDefault(T =>T.TipoDescriscao== cmbSaidas.Text);
+            var movimentacaoFinaceira = new MovimentacaoFinanceiraInputModel(DataSaida.Value, Decimal.Parse(txtValor.Text), tipoMovimentacao.Id, SituacaoEnum.ATIVO) ;
 
-
-
-
-            _SaidaFinaceiraService.Salvar(new Modelo.SaidaFinaceira(cmbSaidas.Text, valor, DateTime.Now, "ATIVO"));
+            var resultado= await _movimentoFinaceiroService.CadastrarMovimentacoes(movimentacaoFinaceira);
+            if (resultado == null)
+                return;
             MessageBox.Show("Operação cadastrada! ", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            _movimentoFinaceiroService.Salvar(new Modelo.MovimentoFinaceiro(cmbSaidas.Text, "Saida", 0, valor, DateTime.Now, "ATIVO"));
-            txtValor.Clear();
-            cmbSaidas.SelectedIndex = -1;
-        }
+            this.Close();
+            //txtValor.Clear();
+            //cmbSaidas.SelectedIndex = -1;
 
-        private void frmSaida_Load(object sender, EventArgs e)
-        {
-            var tipo = _tiposService.obterTipoSaida();
-
-            foreach (var tipos in tipo)
-            {
-                cmbSaidas.Items.Add(tipos.Nome);
-
-            }
         }
     }
 }

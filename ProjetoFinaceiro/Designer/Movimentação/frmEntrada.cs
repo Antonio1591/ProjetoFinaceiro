@@ -10,32 +10,33 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
 using Dapper;
+using ProjetoFinaceiro.Modelo.Domain;
 
 namespace ProjetoFinaceiro.Designer
 {
     public partial class frmEntrada : Form
     {
-        private readonly TiposService _tiposService;
-        private readonly EntradaFinaceiraService _EntradaFinaceiraService;
-        private readonly MovimentoFinaceiroService _MovimentoFinaceiroService;
+        private readonly ITipoMovimentacaoServices _TipoMovimentacaoService;
+        private readonly IMovimentacaoFinanceiraServices _movimentoFinanceiroServices;
 
-        public frmEntrada(TiposService tiposService, EntradaFinaceiraService _entradaFinaceiraService, MovimentoFinaceiroService movimentoFinaceiroService)
+
+        public frmEntrada(ITipoMovimentacaoServices tiposService, IMovimentacaoFinanceiraServices movimentoFinaceiroService)
         {
-            _tiposService = tiposService;
-            _EntradaFinaceiraService = _entradaFinaceiraService;
-            _MovimentoFinaceiroService = movimentoFinaceiroService;
+            _TipoMovimentacaoService = tiposService;
+
+            _movimentoFinanceiroServices = movimentoFinaceiroService;
             InitializeComponent();
         }
 
         private void frmEntrada_Load(object sender, EventArgs e)
         {
-            var tipo = _tiposService.obterTipoEntrada();
+            //var tipo = _tiposService.obterTipoEntrada();
 
-            foreach (var tipos in tipo)
-            {
-                cmbEntradas.Items.Add(tipos.Nome);
+            //foreach (var tipos in tipo)
+            //{
+            //    cmbEntradas.Items.Add(tipos.Nome);
 
-            }
+            //}
 
         }
 
@@ -55,25 +56,26 @@ namespace ProjetoFinaceiro.Designer
         private void btnInserir_Click(object sender, EventArgs e)
         {
 
-            double valor = Convert.ToDouble(substituicaoTxtValor1.Text.Replace("R$ ", "")) ;
-            
-
-            DateTime data= DateTime.Now;
-            MessageBox.Show(valor.ToString(), data.ToString());
+            //double valor = Convert.ToDouble(substituicaoTxtValor1.Text.Replace("R$ ", "")) ;
 
 
-            if (cmbEntradas.Text == "" || substituicaoTxtValor1.Text == "")
+            //DateTime data= DateTime.Now;
+            //MessageBox.Show(valor.ToString(), data.ToString());
+
+
+            if (cmbEntradas.Text == "")
             {
                 MessageBox.Show("Não pode ter campos vazios! ", "Campos vazios! ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
 
-            _EntradaFinaceiraService.Salvar(new Modelo.EntradaFinaceira(cmbEntradas.Text,valor, DateTime.Now, "ATIVO"));
-            MessageBox.Show("Operação cadastrada! ", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            _MovimentoFinaceiroService.Salvar(new Modelo.MovimentoFinaceiro(cmbEntradas.Text, "Entrada", valor, 0, DateTime.Now, "ATIVO"));
-            substituicaoTxtValor1.Clear();
-           cmbEntradas.SelectedIndex = -1;
+            //    _EntradaFinaceiraService.Salvar(new Modelo.EntradaFinaceira(cmbEntradas.Text,valor, DateTime.Now, "ATIVO"));
+            //    MessageBox.Show("Operação cadastrada! ", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    _MovimentoFinaceiroService.Salvar(new Modelo.MovimentoFinaceiro(cmbEntradas.Text, "Entrada", valor, 0, DateTime.Now, "ATIVO"));
+
+            //   cmbEntradas.SelectedIndex = -1;
+            //}
         }
     }
 }

@@ -10,13 +10,12 @@ namespace apiProjetoFinaceiro.Model.Mapping
             return new MovimentacaoFinanceiraViewModel
             {
                 Id = movimentacaoFinaceira.Id,
-                IdUsuario = movimentacaoFinaceira.Usuario.Id,
-                NomeUsuario = movimentacaoFinaceira.Usuario.Nome,
                 DatamovimentacaoEntrada = movimentacaoFinaceira.DatamovimentacaoEntrada,
                 ValorMovimentacao = movimentacaoFinaceira.ValorMovimentacao,
+                TipoMovimentacaoId = movimentacaoFinaceira.TipoMovimentacao.id,
                 TipoOperacao = movimentacaoFinaceira.TipoMovimentacao.TipoOperacao.ToString(),
                 TipoMovimentacaoDescriscao = movimentacaoFinaceira.TipoMovimentacao.TipoDescriscao,
-                Situacao = movimentacaoFinaceira.Situacao,
+                Situacao = movimentacaoFinaceira.Situacao
 
             };
         }

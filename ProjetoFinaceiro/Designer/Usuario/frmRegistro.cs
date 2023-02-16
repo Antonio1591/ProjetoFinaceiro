@@ -1,4 +1,5 @@
 ﻿using apiProjetoFinaceiro.Model.Domain;
+using apiProjetoFinaceiro.Model.Domain.UsuarioIdentityRepositorio;
 using apiProjetoFinaceiro.Model.Imput;
 using apiProjetoFinaceiro.Model.View;
 using apiProjetoFinaceiro.services;
@@ -19,8 +20,6 @@ namespace ProjetoFinaceiro.Designer.Tela_de_Cadastro
     {
         private readonly IUsuarioServices _IUsuariosService;
         private readonly IServiceProvider _serviceProvider;
-        private IEnumerable<CidadeViewModel> _cidadesViweModel;
-        private IEnumerable<BairroViewModel> _bairrosViewModel;
         public frmRegistro(IUsuarioServices iUsuariosService, IServiceProvider serviceProvider)
         {
             InitializeComponent();
@@ -32,37 +31,20 @@ namespace ProjetoFinaceiro.Designer.Tela_de_Cadastro
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
-            var cidade = _cidadesViweModel.FirstOrDefault(C => C.Nome == cmbCidade.Text);
-            if (cidade == null)
-                return;
-            var cidadeInput = new Cidade(cidade.Id, cidade.Nome, cidade.Cep, cidade.Situacao);
-            var bairro = _bairrosViewModel.FirstOrDefault(C => C.Nome == cmbBairro.Text);
-            if (bairro == null)
-                return;
-            var bairroInput = new Bairro(bairro.Id, bairro.Nome, bairro.Situacao);
+            var usuarioCadastro = new UsuarioCadastroRequest(txtEmail.Text, txtSenha.Text,txtSenhaConfirmacao.Text);
 
-            var usuarioCadastro = new UsuarioImputModel(txtNome.Text, mskSenha.Text, txtEmail.Text, txtTelefone.Text, cidadeInput, bairroInput, mskCPF.Text, dtNascimento.Value, "ATIVO");
-            var resultado=_IUsuariosService.CadastrarUsuario(usuarioCadastro);
-            
 
+            var resultado = _IUsuariosService.CadastrarUsuarioIdentity(usuarioCadastro);
+            if(resultado != null)
+                MessageBox.Show("Usuario Cadastrado");
+
+            this.Close();
            
         }
 
         private async void frmRegistro_Load(object sender, EventArgs e)
         {
-            _cidadesViweModel = await _IUsuariosService.BuscarCidades();
-            _bairrosViewModel = await _IUsuariosService.BuscarBairros();
-
-            foreach (var bairro in _bairrosViewModel)
-            {
-                cmbBairro.Items.Add(bairro.Nome);
-            }
-
-            var cidades = _IUsuariosService.BuscarCidades();
-            foreach (var cidade in _cidadesViweModel)
-            {
-                cmbCidade.Items.Add(cidade.Nome);
-            }
+           
         }
     }
 }
